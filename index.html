@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decisio: AI Decision Maker - Stop Overthinking, Start Deciding</title>
+<meta name="description" content="Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results. Free for iOS.">
+<meta name="keywords" content="decision making app, AHP, pairwise comparison, AI decision maker, decision framework, iOS app">
+<link rel="canonical" href="https://decisio-app.github.io">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Decisio: AI Decision Maker">
+<meta property="og:description" content="Stop overthinking. Make decisions backed by the same math NASA uses. Free for iOS.">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="https://decisio-app.github.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Decisio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Decisio: AI Decision Maker">
+<meta name="twitter:description" content="Stop overthinking. Make decisions backed by the same math NASA uses.">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+<!-- Apple Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6752439703">
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Decisio: AI Decision Maker",
+  "operatingSystem": "iOS",
+  "applicationCategory": "ProductivityApplication",
+  "description": "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results.",
+  "url": "https://decisio-app.github.io",
+  "downloadUrl": "https://apps.apple.com/app/id6752439703",
+  "author": {
+    "@type": "Person",
+    "name": "Dmitrii Raev",
+    "email": "dmitrii.raev@gmail.com"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier with 3 decisions"
+    },
+    {
+      "@type": "Offer",
+      "price": "2.99",
+      "priceCurrency": "USD",
+      "description": "Pro monthly subscription",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "billingDuration": "P1M"
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "description": "Pro annual subscription with 7-day free trial",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "billingDuration": "P1Y"
+      }
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "1"
+  }
+}
+</script>
+
+<style>
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: #121419;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #5989D9;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #7BA3E6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   DESIGN TOKENS (matching SwiftUI DesignSystem)
+   ============================================ */
+:root {
+  --accent: #5989D9;
+  --accent-dark: #4773B8;
+  --accent-glow: rgba(89, 137, 217, 0.15);
+  --success: #33C759;
+  --error: #FF453A;
+
+  --bg-primary: #121419;
+  --bg-secondary: #1C212E;
+  --bg-tertiary: #29303F;
+  --bg-gradient-end: #0F1C2E;
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-tertiary: rgba(255, 255, 255, 0.45);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+
+  --radius-sm: 12px;
+  --radius-lg: 20px;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  --max-width: 1120px;
+  --section-padding: 80px 24px;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+.fade-in-delay-5 { transition-delay: 0.5s; }
+
+/* ============================================
+   STICKY HEADER
+   ============================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(18, 20, 25, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.3s ease;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.header-logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header-nav a {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: var(--text-primary);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.header-cta:hover {
+  background: var(--accent-dark);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.header-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .header-nav a:not(.header-cta) {
+    display: none;
+  }
+  .site-header {
+    padding: 0 16px;
+  }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(89, 137, 217, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 540px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(89, 137, 217, 0.1);
+  border: 1px solid rgba(89, 137, 217, 0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.app-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #fff;
+  color: #000 !important;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.app-store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+  color: #000 !important;
+}
+
+.app-store-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.app-store-btn-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.app-store-btn-sub {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.app-store-btn-main {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+
+.hero-trust-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Phone Mockup */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone-mockup {
+  width: 280px;
+  height: 570px;
+  background: #1C212E;
+  border-radius: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(89, 137, 217, 0.08);
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  z-index: 2;
+}
+
+.phone-screen {
+  position: absolute;
+  inset: 6px;
+  border-radius: 36px;
+  background: var(--bg-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 16px 20px;
+}
+
+.phone-screen-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.phone-screen-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.phone-screen-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.phone-screen-subtitle {
+  font-size: 9px;
+  color: var(--text-secondary);
+}
+
+.phone-tip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.phone-tip-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.phone-tip-title {
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.phone-tip-desc {
+  font-size: 8px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.phone-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.phone-template-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.phone-template-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.phone-template-icon {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.phone-template-name {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.phone-template-desc {
+  font-size: 7px;
+  color: var(--text-tertiary);
+}
+
+.phone-recent-label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.phone-recent-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 6px;
+}
+
+.phone-recent-title {
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.phone-recent-meta {
+  font-size: 8px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.phone-recent-dot {
+  color: var(--accent);
+}
+
+.phone-progress-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.phone-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+}
+
+/* Floating elements around phone */
+.hero-float {
+  position: absolute;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  box-shadow: var(--shadow-card);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-float-1 {
+  top: 60px;
+  right: -20px;
+  animation-delay: 0s;
+}
+
+.hero-float-2 {
+  bottom: 100px;
+  left: -30px;
+  animation-delay: 2s;
+}
+
+.hero-float-3 {
+  top: 200px;
+  left: -40px;
+  animation-delay: 4s;
+}
+
+.hero-float-accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 48px;
+  }
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-description {
+    max-width: 520px;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-trust {
+    justify-content: center;
+  }
+  .hero-visual {
+    order: -1;
+  }
+  .phone-mockup {
+    width: 240px;
+    height: 490px;
+  }
+  .hero-float {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 16px 60px;
+    min-height: auto;
+  }
+  .phone-mockup {
+    width: 200px;
+    height: 408px;
+  }
+  .phone-screen {
+    padding: 32px 10px 14px;
+  }
+}
+
+/* ============================================
+   SECTION UTILITIES
+   ============================================ */
+.section {
+  padding: var(--section-padding);
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-description {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.section-centered {
+  text-align: center;
+}
+
+.section-centered .section-description {
+  margin: 0 auto;
+}
+
+/* ============================================
+   HOW IT WORKS
+   ============================================ */
+.how-it-works {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+  position: relative;
+}
+
+/* Connector line */
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: calc(16.67% + 40px);
+  right: calc(16.67% + 40px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(89, 137, 217, 0.3), var(--accent));
+  z-index: 0;
+}
+
+.step-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  position: relative;
+}
+
+.step-icon {
+  font-size: 32px;
+}
+
+.step-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.step-description {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .steps-grid::before {
+    display: none;
+  }
+  .step-card {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 20px;
+  }
+  .step-number {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    margin: 0;
+  }
+  .step-icon {
+    font-size: 24px;
+  }
+  .step-description {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   FEATURES GRID
+   ============================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.feature-card {
+  padding: 28px 24px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(89, 137, 217, 0.3);
+  box-shadow: 0 12px 40px rgba(89, 137, 217, 0.08);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.feature-icon-blue {
+  background: rgba(89, 137, 217, 0.12);
+}
+
+.feature-icon-green {
+  background: rgba(51, 199, 89, 0.12);
+}
+
+.feature-icon-amber {
+  background: rgba(255, 214, 10, 0.12);
+}
+
+.feature-icon-red {
+  background: rgba(255, 69, 58, 0.12);
+}
+
+.feature-icon-purple {
+  background: rgba(175, 82, 222, 0.12);
+}
+
+.feature-icon-teal {
+  background: rgba(90, 200, 250, 0.12);
+}
+
+.feature-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.feature-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(255, 214, 10, 0.12);
+  color: #FFD60A;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   TEMPLATES SECTION
+   ============================================ */
+.templates-section {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+.templates-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.template-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.template-pill:hover {
+  border-color: var(--accent);
+  background: rgba(89, 137, 217, 0.06);
+  color: var(--text-primary);
+}
+
+.template-pill-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .templates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .templates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .templates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   PRICING SECTION
+   ============================================ */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-card {
+  padding: 36px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+.pricing-card-featured {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(89, 137, 217, 0.08) 0%, rgba(89, 137, 217, 0.02) 100%);
+  box-shadow: 0 0 60px rgba(89, 137, 217, 0.06);
+}
+
+.pricing-popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pricing-plan {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+
+.pricing-price {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.pricing-price-small {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
+.pricing-note {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.pricing-features li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pricing-features li::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border-radius: 50%;
+  background: rgba(51, 199, 89, 0.15);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2333C759' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pricing-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.pricing-btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.pricing-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(89, 137, 217, 0.2);
+  color: #fff;
+}
+
+.pricing-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.pricing-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pricing-toggle-annual {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  .pricing-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+/* ============================================
+   CREDIBILITY SECTION
+   ============================================ */
+.credibility {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+.credibility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.credibility-card {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.credibility-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(89, 137, 217, 0.08);
+  border: 1px solid rgba(89, 137, 217, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.credibility-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.credibility-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .credibility-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final-cta {
+  position: relative;
+  text-align: center;
+  padding: 100px 24px;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(89, 137, 217, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.final-cta h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.final-cta-sub {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.final-cta .app-store-btn {
+  margin: 0 auto;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 48px 24px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footer-logo-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #7BA3E6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     HEADER
+     ========================================== -->
+<header class="site-header" role="banner">
+  <a href="#" class="header-logo" aria-label="Decisio home">
+    <span class="header-logo-icon" aria-hidden="true">D</span>
+    Decisio
+  </a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://apps.apple.com/app/id6752439703" class="header-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </nav>
+</header>
+
+<!-- ==========================================
+     HERO
+     ========================================== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content fade-in">
+      <div class="hero-badge">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Available on iOS
+      </div>
+      <h1>Stop overthinking.<br>Start deciding.</h1>
+      <p class="hero-description">
+        Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results. In 10 minutes.
+      </p>
+      <div class="hero-actions">
+        <a href="https://apps.apple.com/app/id6752439703" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="app-store-btn-text">
+            <span class="app-store-btn-sub">Download on the</span>
+            <span class="app-store-btn-main">App Store</span>
+          </span>
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span>Free to start</span>
+        <span class="hero-trust-divider" aria-hidden="true"></span>
+        <span>3 decisions included</span>
+        <span class="hero-trust-divider" aria-hidden="true"></span>
+        <span>No account required</span>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in fade-in-delay-2">
+      <div class="phone-mockup" aria-hidden="true">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-screen-header">
+            <div class="phone-screen-logo">D</div>
+            <div>
+              <div class="phone-screen-title">Decisio</div>
+              <div class="phone-screen-subtitle">Decision Intelligence</div>
+            </div>
+          </div>
+          <div class="phone-tip">
+            <span class="phone-tip-icon">&#x1F4A1;</span>
+            <div>
+              <div class="phone-tip-title">Pre-Mortem Analysis</div>
+              <div class="phone-tip-desc">Imagine your decision failed. What went wrong? This reveals hidden risks.</div>
+            </div>
+          </div>
+          <div class="phone-section-label">Quick Start</div>
+          <div class="phone-template-grid">
+            <div class="phone-template-card">
+              <div class="phone-template-icon">&#x1F4BC;</div>
+              <div class="phone-template-name">Business</div>
+              <div class="phone-template-desc">Strategy calls</div>
+            </div>
+            <div class="phone-template-card">
+              <div class="phone-template-icon">&#x1F680;</div>
+              <div class="phone-template-name">Career</div>
+              <div class="phone-template-desc">Job & growth</div>
+            </div>
+            <div class="phone-template-card">
+              <div class="phone-template-icon">&#x1F4B0;</div>
+              <div class="phone-template-name">Investment</div>
+              <div class="phone-template-desc">Financial picks</div>
+            </div>
+            <div class="phone-template-card">
+              <div class="phone-template-icon">&#x1F465;</div>
+              <div class="phone-template-name">Hiring</div>
+              <div class="phone-template-desc">Team building</div>
+            </div>
+          </div>
+          <div class="phone-recent-label">Recent Decisions</div>
+          <div class="phone-recent-card">
+            <div class="phone-recent-title">New office location</div>
+            <div class="phone-recent-meta">2h ago <span class="phone-recent-dot">&#x2022;</span> <span style="color:var(--accent)">Complete</span></div>
+            <div class="phone-progress-bar"><div class="phone-progress-fill" style="width:100%"></div></div>
+          </div>
+          <div class="phone-recent-card">
+            <div class="phone-recent-title">Marketing platform</div>
+            <div class="phone-recent-meta">1d ago <span class="phone-recent-dot">&#x2022;</span> <span style="color:var(--accent)">In Progress</span></div>
+            <div class="phone-progress-bar"><div class="phone-progress-fill" style="width:60%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Floating elements -->
+      <div class="hero-float hero-float-1">
+        <span class="hero-float-accent">93%</span> confidence score
+      </div>
+      <div class="hero-float hero-float-2">
+        &#x2696;&#xFE0F; AHP Pairwise Method
+      </div>
+      <div class="hero-float hero-float-3">
+        &#x1F916; AI Analysis Ready
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     HOW IT WORKS
+     ========================================== -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="section-inner section-centered">
+    <span class="section-label fade-in">How It Works</span>
+    <h2 class="section-title fade-in">Three steps to a clear decision</h2>
+    <p class="section-description fade-in">No spreadsheets. No endless pros-and-cons lists. Just a structured process that works.</p>
+
+    <div class="steps-grid">
+      <div class="step-card fade-in fade-in-delay-1">
+        <div class="step-number"><span class="step-icon">&#x1F3AF;</span></div>
+        <div>
+          <h3 class="step-title">Define your decision</h3>
+          <p class="step-description">Name your choice, add criteria that matter, and list your options. AI can suggest both for you.</p>
+        </div>
+      </div>
+      <div class="step-card fade-in fade-in-delay-2">
+        <div class="step-number"><span class="step-icon">&#x2696;&#xFE0F;</span></div>
+        <div>
+          <h3 class="step-title">Compare what matters</h3>
+          <p class="step-description">Rate pairs of criteria and options side by side. The same method NASA and Boeing rely on for mission-critical calls.</p>
+        </div>
+      </div>
+      <div class="step-card fade-in fade-in-delay-3">
+        <div class="step-number"><span class="step-icon">&#x1F4CA;</span></div>
+        <div>
+          <h3 class="step-title">Get ranked results</h3>
+          <p class="step-description">See your options ranked with confidence scores, AI executive summary, and a Devil's Advocate challenge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FEATURES
+     ========================================== -->
+<section class="section" id="features">
+  <div class="section-inner section-centered">
+    <span class="section-label fade-in">Features</span>
+    <h2 class="section-title fade-in">Everything you need to decide with confidence</h2>
+    <p class="section-description fade-in">Powered by real decision science, enhanced with AI. Not another coin-flip app.</p>
+
+    <div class="features-grid">
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon feature-icon-blue" aria-hidden="true">&#x2696;&#xFE0F;</div>
+        <h3 class="feature-title">AHP Pairwise Comparisons</h3>
+        <p class="feature-description">The same math NASA, Boeing, and the World Bank use to make high-stakes decisions. Published in thousands of peer-reviewed studies.</p>
+      </div>
+
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon feature-icon-purple" aria-hidden="true">&#x1F916;</div>
+        <h3 class="feature-title">AI-Powered Analysis</h3>
+        <p class="feature-description">Get intelligent criteria suggestions, option ideas, and an executive summary that explains your results in plain language.</p>
+      </div>
+
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon feature-icon-red" aria-hidden="true">&#x1F525;</div>
+        <h3 class="feature-title">Devil's Advocate <span class="feature-badge">Pro</span></h3>
+        <p class="feature-description">AI challenges your top choice before you commit. Surfaces blind spots, risks, and counterarguments you might have missed.</p>
+      </div>
+
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon feature-icon-green" aria-hidden="true">&#x1F4D6;</div>
+        <h3 class="feature-title">Decision Playbook</h3>
+        <p class="feature-description">Save recipes and principles from every decision. Build your personal decision-making framework over time.</p>
+      </div>
+
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon feature-icon-amber" aria-hidden="true">&#x1F3AF;</div>
+        <h3 class="feature-title">Calibration Score</h3>
+        <p class="feature-description">Track your decision-making accuracy. Rate outcomes as Right Call, Mixed, or Wrong Call and watch your calibration improve.</p>
+      </div>
+
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon feature-icon-teal" aria-hidden="true">&#x1F4C4;</div>
+        <h3 class="feature-title">PDF &amp; CSV Export <span class="feature-badge">Pro</span></h3>
+        <p class="feature-description">Share professional decision reports with stakeholders. Full audit trail with criteria weights, scores, and rationale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     TEMPLATES
+     ========================================== -->
+<section class="section templates-section" id="templates">
+  <div class="section-inner section-centered">
+    <span class="section-label fade-in">Templates</span>
+    <h2 class="section-title fade-in">10 templates for real decisions</h2>
+    <p class="section-description fade-in">Start in seconds with pre-built criteria and structures. Customize everything or build from scratch.</p>
+
+    <div class="templates-grid fade-in">
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F4BC;</span>
+        Business Strategy
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F680;</span>
+        Career Decision
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F4B0;</span>
+        Investment
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F465;</span>
+        Hiring
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F3E0;</span>
+        Real Estate
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F4BB;</span>
+        Technology
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F393;</span>
+        Education
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x2764;&#xFE0F;</span>
+        Life Decision
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x1F6D2;</span>
+        Purchase
+      </div>
+      <div class="template-pill">
+        <span class="template-pill-icon" aria-hidden="true">&#x2699;&#xFE0F;</span>
+        Custom
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PRICING
+     ========================================== -->
+<section class="section" id="pricing">
+  <div class="section-inner section-centered">
+    <span class="section-label fade-in">Pricing</span>
+    <h2 class="section-title fade-in">Start free. Upgrade when you need more.</h2>
+    <p class="section-description fade-in">No account required. No credit card upfront. Just open the app and decide.</p>
+
+    <div class="pricing-cards">
+      <div class="pricing-card fade-in fade-in-delay-1">
+        <div class="pricing-plan">Free</div>
+        <div class="pricing-price">$0</div>
+        <p class="pricing-note">3 decisions to get started</p>
+        <ul class="pricing-features">
+          <li>3 complete decisions</li>
+          <li>AHP pairwise comparisons</li>
+          <li>All 10 templates</li>
+          <li>AI criteria &amp; option suggestions</li>
+          <li>Ranked results with scores</li>
+          <li>Outcome tracking</li>
+        </ul>
+        <a href="https://apps.apple.com/app/id6752439703" class="pricing-btn pricing-btn-secondary" target="_blank" rel="noopener">Get Started Free</a>
+      </div>
+
+      <div class="pricing-card pricing-card-featured fade-in fade-in-delay-2">
+        <div class="pricing-popular">Most Popular</div>
+        <div class="pricing-plan">Pro</div>
+        <div class="pricing-price">$2.99<span class="pricing-price-small"> /mo</span></div>
+        <div class="pricing-toggle">
+          <span class="pricing-toggle-annual">or $19.99/year (save 44%)</span>
+        </div>
+        <p class="pricing-note">7-day free trial on annual plan</p>
+        <ul class="pricing-features">
+          <li>Unlimited decisions</li>
+          <li>Everything in Free</li>
+          <li>Devil's Advocate AI challenge</li>
+          <li>AI executive summary</li>
+          <li>PDF &amp; CSV export</li>
+          <li>Calibration score tracking</li>
+          <li>Decision Playbook</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="https://apps.apple.com/app/id6752439703" class="pricing-btn pricing-btn-primary" target="_blank" rel="noopener">Start Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CREDIBILITY
+     ========================================== -->
+<section class="section credibility" id="credibility">
+  <div class="section-inner section-centered">
+    <span class="section-label fade-in">Built on Science</span>
+    <h2 class="section-title fade-in">The decision framework behind Decisio</h2>
+    <p class="section-description fade-in">AHP (Analytic Hierarchy Process) isn't new. It's been trusted for decades by the world's most rigorous organizations.</p>
+
+    <div class="credibility-grid">
+      <div class="credibility-card fade-in fade-in-delay-1">
+        <div class="credibility-icon" aria-hidden="true">&#x1F680;</div>
+        <h3 class="credibility-title">NASA & Boeing</h3>
+        <p class="credibility-description">Used for mission-critical decisions where failure is not an option. From spacecraft design to supplier selection.</p>
+      </div>
+      <div class="credibility-card fade-in fade-in-delay-2">
+        <div class="credibility-icon" aria-hidden="true">&#x1F3E6;</div>
+        <h3 class="credibility-title">World Bank & Fortune 500</h3>
+        <p class="credibility-description">Applied to resource allocation, strategic planning, and multi-billion dollar investment decisions worldwide.</p>
+      </div>
+      <div class="credibility-card fade-in fade-in-delay-3">
+        <div class="credibility-icon" aria-hidden="true">&#x1F4DA;</div>
+        <h3 class="credibility-title">Peer-Reviewed Research</h3>
+        <p class="credibility-description">Published in thousands of academic papers since 1980. One of the most studied and validated decision frameworks in existence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FINAL CTA
+     ========================================== -->
+<section class="final-cta" id="download">
+  <div class="final-cta-inner fade-in">
+    <h2>Make your next decision<br>the <span class="gradient-text">right</span> one</h2>
+    <p class="final-cta-sub">"One good decision pays for a lifetime of Decisio."</p>
+    <a href="https://apps.apple.com/app/id6752439703" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="app-store-btn-text">
+        <span class="app-store-btn-sub">Download on the</span>
+        <span class="app-store-btn-main">App Store</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-icon" aria-hidden="true">D</span>
+      Decisio
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
+      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
+      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
+    </nav>
+    <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>
+  </div>
+</footer>
+
+<!-- ==========================================
+     SCROLL ANIMATION (Intersection Observer)
+     ========================================== -->
+<script>
+(function() {
+  'use strict';
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
