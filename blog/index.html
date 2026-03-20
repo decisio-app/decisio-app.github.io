@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Decisio: AI Decision Maker</title>
+<meta name="description" content="Decision-making guides, frameworks, and research. Learn how NASA, Fortune 500 companies, and top researchers approach complex choices.">
+<link rel="canonical" href="https://decisio-app.github.io/blog/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Blog - Decisio: AI Decision Maker">
+<meta property="og:description" content="Decision-making guides, frameworks, and research. Learn how to make better decisions backed by science.">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="https://decisio-app.github.io/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Decisio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog - Decisio: AI Decision Maker">
+<meta name="twitter:description" content="Decision-making guides, frameworks, and research.">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+<!-- Apple Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6752439703">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: #121419;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: #5989D9; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #7BA3E6; }
+
+:root {
+  --accent: #5989D9;
+  --accent-dark: #4773B8;
+  --bg-primary: #121419;
+  --bg-secondary: #1C212E;
+  --bg-tertiary: #29303F;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-tertiary: rgba(255, 255, 255, 0.45);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.12);
+  --radius-sm: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --max-width: 1120px;
+}
+
+/* Header */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 24px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(18, 20, 25, 0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;
+}
+.header-logo-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.2s ease; }
+.header-nav a:hover { color: var(--text-primary); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; background: var(--accent); color: #fff !important;
+  border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.header-cta:hover { background: var(--accent-dark); color: #fff !important; transform: translateY(-1px); }
+.header-cta svg { width: 16px; height: 16px; }
+@media (max-width: 768px) {
+  .header-nav a:not(.header-cta) { display: none; }
+  .site-header { padding: 0 16px; }
+}
+
+/* Page content */
+.page-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.page-subtitle {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+/* Blog cards */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.blog-card {
+  padding: 32px 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(89, 137, 217, 0.3);
+  box-shadow: 0 12px 40px rgba(89, 137, 217, 0.08);
+}
+.blog-card-date {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.blog-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+.blog-card-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.blog-card-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+.blog-card-link:hover { gap: 10px; }
+
+@media (max-width: 480px) {
+  .page-content { padding: 100px 16px 60px; }
+  .blog-grid { grid-template-columns: 1fr; }
+}
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border-subtle); padding: 48px 24px; }
+.footer-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+.footer-logo-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-tertiary); transition: color 0.2s ease; }
+.footer-links a:hover { color: var(--text-primary); }
+.footer-copyright { font-size: 13px; color: var(--text-tertiary); }
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <a href="/" class="header-logo" aria-label="Decisio home">
+    <span class="header-logo-icon" aria-hidden="true">D</span>
+    Decisio
+  </a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/blog/" style="color: var(--text-primary);">Blog</a>
+    <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_index_header&mt=8" class="header-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </nav>
+</header>
+
+<main class="page-content">
+  <h1 class="page-title">Blog</h1>
+  <p class="page-subtitle">Decision-making guides, frameworks, and research. Learn how the world's best organizations make high-stakes choices.</p>
+
+  <div class="blog-grid">
+
+    <article class="blog-card">
+      <div class="blog-card-date">March 19, 2026</div>
+      <h2 class="blog-card-title">How NASA Makes Decisions (And How You Can Too)</h2>
+      <p class="blog-card-desc">NASA uses a mathematical decision framework called AHP for mission-critical choices. Learn how the same method works and how to use it on your iPhone.</p>
+      <a href="/blog/how-nasa-makes-decisions.html" class="blog-card-link">Read &rarr;</a>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-date">March 19, 2026</div>
+      <h2 class="blog-card-title">Decision Matrix Template: The Complete Guide (2026)</h2>
+      <p class="blog-card-desc">Free decision matrix template and step-by-step guide. Learn why basic matrices fail and how AHP-based analysis produces more accurate results.</p>
+      <a href="/blog/decision-matrix-template-guide.html" class="blog-card-link">Read &rarr;</a>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-card-date">March 19, 2026</div>
+      <h2 class="blog-card-title">How to Choose Between Two Job Offers: A Data-Driven Approach</h2>
+      <p class="blog-card-desc">Struggling to pick between two job offers? Use the same decision framework NASA uses to make high-stakes choices. Step-by-step guide with real examples.</p>
+      <a href="/blog/how-to-choose-between-job-offers.html" class="blog-card-link">Read &rarr;</a>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-icon" aria-hidden="true">D</span>
+      Decisio
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
+      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
+      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
+    </nav>
+    <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>
+  </div>
+</footer>
+
+<!-- Amplitude Analytics -->
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+<script>
+(function() {
+  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
+    defaultTracking: { pageViews: true, sessions: true }
+  });
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || params.get('ref') || 'direct';
+  var medium = params.get('utm_medium') || 'organic';
+  var campaign = params.get('utm_campaign') || '';
+  amplitude.track('blog_article_viewed', {
+    article_slug: 'index',
+    source: source,
+    medium: medium,
+    campaign: campaign,
+    referrer: document.referrer || 'none'
+  });
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      amplitude.track('app_store_clicked', { position: 'blog_index', source: source });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

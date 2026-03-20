@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How NASA Makes Decisions (And How You Can Too) - Decisio</title>
+<meta name="description" content="NASA uses a mathematical decision framework called AHP for mission-critical choices. Learn how the same method works and how to use it on your iPhone.">
+<link rel="canonical" href="https://decisio-app.github.io/blog/how-nasa-makes-decisions.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How NASA Makes Decisions (And How You Can Too)">
+<meta property="og:description" content="NASA uses a mathematical decision framework called AHP for mission-critical choices. Learn how the same method works and how to use it on your iPhone.">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="https://decisio-app.github.io/blog/how-nasa-makes-decisions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Decisio">
+<meta property="article:published_time" content="2026-03-19">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How NASA Makes Decisions (And How You Can Too)">
+<meta name="twitter:description" content="NASA uses a mathematical decision framework called AHP for mission-critical choices.">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+<!-- Apple Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6752439703">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: #121419; color: #ffffff; line-height: 1.6; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: #5989D9; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #7BA3E6; }
+:root {
+  --accent: #5989D9; --accent-dark: #4773B8;
+  --bg-primary: #121419; --bg-secondary: #1C212E; --bg-tertiary: #29303F;
+  --text-primary: #ffffff; --text-secondary: rgba(255,255,255,0.65); --text-tertiary: rgba(255,255,255,0.45);
+  --border-subtle: rgba(255,255,255,0.08); --border-light: rgba(255,255,255,0.12);
+  --radius-sm: 12px; --radius-lg: 20px; --max-width: 1120px;
+}
+
+/* Header */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 24px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(18,20,25,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;
+}
+.header-logo-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
+.header-nav a:hover { color: var(--text-primary); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; background: var(--accent); color: #fff !important;
+  border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.header-cta:hover { background: var(--accent-dark); color: #fff !important; transform: translateY(-1px); }
+.header-cta svg { width: 16px; height: 16px; }
+@media (max-width: 768px) {
+  .header-nav a:not(.header-cta) { display: none; }
+  .site-header { padding: 0 16px; }
+}
+
+/* Article */
+.article-wrapper { max-width: 720px; margin: 0 auto; padding: 120px 24px 60px; }
+.article-meta { margin-bottom: 32px; }
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--text-tertiary);
+  margin-bottom: 24px; transition: color 0.2s ease;
+}
+.article-back:hover { color: var(--accent); }
+.article-date { font-size: 14px; color: var(--text-tertiary); margin-bottom: 12px; }
+.article-title {
+  font-size: clamp(30px, 4.5vw, 44px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
+}
+.article-subtitle {
+  font-size: clamp(16px, 2vw, 19px); color: var(--text-secondary); line-height: 1.6;
+}
+
+/* Article body */
+.article-body h2 {
+  font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.25;
+  margin: 48px 0 16px; color: var(--text-primary);
+}
+.article-body h3 {
+  font-size: clamp(18px, 2.5vw, 22px); font-weight: 700;
+  letter-spacing: -0.01em; line-height: 1.3;
+  margin: 36px 0 12px; color: var(--text-primary);
+}
+.article-body p {
+  font-size: 17px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 20px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 24px; color: var(--text-secondary);
+}
+.article-body li {
+  font-size: 17px; line-height: 1.75; margin-bottom: 8px;
+}
+.article-body strong { color: var(--text-primary); font-weight: 600; }
+.article-body em { font-style: italic; }
+.article-body hr {
+  border: none; border-top: 1px solid var(--border-subtle);
+  margin: 48px 0;
+}
+
+/* CTA box */
+.article-cta {
+  margin: 56px 0 0;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(89,137,217,0.1) 0%, rgba(89,137,217,0.03) 100%);
+  border: 1px solid rgba(89,137,217,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.article-cta h3 {
+  font-size: 24px; font-weight: 700; margin: 0 0 8px; color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.article-cta p {
+  font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;
+}
+.app-store-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; background: #fff; color: #000 !important;
+  border-radius: var(--radius-sm); font-size: 16px; font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.app-store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+  color: #000 !important;
+}
+.app-store-btn svg { width: 22px; height: 22px; }
+.app-store-btn-text { display: flex; flex-direction: column; line-height: 1.2; }
+.app-store-btn-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.02em; }
+.app-store-btn-main { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+
+@media (max-width: 480px) {
+  .article-wrapper { padding: 100px 16px 40px; }
+}
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border-subtle); padding: 48px 24px; }
+.footer-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+.footer-logo-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-tertiary); }
+.footer-links a:hover { color: var(--text-primary); }
+.footer-copyright { font-size: 13px; color: var(--text-tertiary); }
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <a href="/" class="header-logo" aria-label="Decisio home">
+    <span class="header-logo-icon" aria-hidden="true">D</span>
+    Decisio
+  </a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_how-nasa-makes-decisions&mt=8" class="header-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </nav>
+</header>
+
+<main class="article-wrapper">
+  <div class="article-meta">
+    <a href="/blog/" class="article-back">&larr; Back to Blog</a>
+    <div class="article-date">March 19, 2026</div>
+    <h1 class="article-title">How NASA Makes Decisions (And How You Can Too)</h1>
+    <p class="article-subtitle">The mathematical decision framework behind mission-critical choices -- and how to use it for everyday decisions.</p>
+  </div>
+
+  <div class="article-body">
+
+    <p>When NASA engineers needed to decide which nuclear reactor design to use for human Mars missions, they did not flip a coin. They did not take a vote. They did not go with the loudest voice in the room.</p>
+
+    <p>They used math.</p>
+
+    <p>Specifically, they used a method called the <strong>Analytic Hierarchy Process</strong> -- a structured decision-making framework that turns subjective judgments into objective rankings. It was developed in the 1970s by mathematician Thomas L. Saaty, and it has since been adopted by governments, Fortune 500 companies, and space agencies around the world.</p>
+
+    <p>The interesting part? The same method works just as well for choosing a new apartment as it does for choosing a Mars propulsion system. And you do not need a PhD to use it.</p>
+
+    <h2>The Problem With How Most People Make Decisions</h2>
+
+    <p>Think about the last big decision you made. Maybe it was a job change, a major purchase, or a move to a new city. How did you make it?</p>
+
+    <p>If you are like most people, you probably did one of these things:</p>
+
+    <ul>
+      <li>Made a pros and cons list</li>
+      <li>Asked friends for advice</li>
+      <li>Went with your gut feeling</li>
+      <li>Agonized for weeks and then picked whatever felt least risky</li>
+    </ul>
+
+    <p>None of these are terrible strategies. But they all share a fundamental flaw: they do not account for the fact that <strong>not all factors matter equally</strong>. A pros and cons list treats "great coffee shops nearby" the same as "30-minute shorter commute." Your gut feeling is shaped by whichever factor you thought about most recently. And your friends are projecting their own priorities onto your situation.</p>
+
+    <p>Research in behavioral psychology has shown this repeatedly. Daniel Kahneman's work on cognitive biases demonstrated that humans are remarkably poor at weighing multiple factors simultaneously. We anchor on the first piece of information we receive. We give disproportionate weight to vivid, emotional factors. We suffer from confirmation bias, seeking out information that supports what we already want to do.</p>
+
+    <p>This is not a character flaw. It is a hardware limitation. Our brains evolved to make fast, binary decisions -- fight or flight, safe or dangerous -- not to evaluate seven criteria across four options with different weightings.</p>
+
+    <h2>What NASA Does Instead</h2>
+
+    <p>When NASA's Space Nuclear Propulsion program needed to evaluate reactor designs for deep-space missions, they turned to AHP. The process, documented in NASA technical reports, works like this:</p>
+
+    <p><strong>Step 1: Define the goal and break it down.</strong> Instead of asking "which reactor is best?" they identified specific criteria: safety, performance, mass, development risk, cost, and schedule. Each of these was further broken into sub-criteria.</p>
+
+    <p><strong>Step 2: Compare criteria in pairs.</strong> Here is where AHP gets clever. Instead of trying to assign weights to all criteria at once (which humans are bad at), you compare them two at a time. Is safety more important than cost? How much more? Is performance more important than schedule? By how much?</p>
+
+    <p>This is something humans are actually good at. Comparing two things is natural. We do it all the time. "Do I like chocolate or vanilla more?" is an easy question. "Rank these 12 ice cream flavors by preference with percentage weights" is nearly impossible to do accurately.</p>
+
+    <p><strong>Step 3: Build a mathematical model.</strong> AHP takes all those pairwise comparisons and uses linear algebra to calculate precise weights for each criterion. Not "safety is important" but "safety accounts for 34.2% of this decision."</p>
+
+    <p><strong>Step 4: Score the alternatives.</strong> Each option is evaluated against each criterion using the same pairwise comparison approach. How does Reactor A compare to Reactor B on safety? On cost? On development risk?</p>
+
+    <p><strong>Step 5: Calculate the final ranking.</strong> The math combines the criteria weights with the alternative scores to produce a single, defensible ranking. Reactor B scores 0.42. Reactor A scores 0.35. Reactor C scores 0.23. Decision made.</p>
+
+    <p>The beauty of this process is that it externalizes your thinking. Every assumption is visible. Every trade-off is explicit. If stakeholders disagree, you can see exactly where they disagree -- not just that they prefer different options, but which specific criteria they weigh differently.</p>
+
+    <h2>The Saaty Scale: Turning Feelings Into Numbers</h2>
+
+    <p>The mechanism that makes AHP work is the Saaty scale, a 1-to-9 rating system for pairwise comparisons:</p>
+
+    <ul>
+      <li><strong>1</strong> -- Equal importance. Both criteria matter the same amount.</li>
+      <li><strong>3</strong> -- Moderate importance. One is slightly more important than the other.</li>
+      <li><strong>5</strong> -- Strong importance. One is clearly more important.</li>
+      <li><strong>7</strong> -- Very strong importance. One is much more important.</li>
+      <li><strong>9</strong> -- Extreme importance. One dominates the other completely.</li>
+    </ul>
+
+    <p>The even numbers (2, 4, 6, 8) represent intermediate values.</p>
+
+    <p>This scale is the key insight. By constraining judgments to a bounded scale and collecting them in pairs, AHP sidesteps most of the cognitive biases that plague unstructured decision-making. You cannot anchor on a single factor because the method forces you to consider every pair. You cannot ignore trade-offs because the math will catch inconsistencies in your comparisons.</p>
+
+    <p>In fact, AHP includes a built-in consistency check. If you say A is more important than B, and B is more important than C, but then claim C is more important than A, the algorithm flags this as inconsistent. It is like a fact-checker for your own reasoning.</p>
+
+    <h2>A Real-World Example: Choosing Where to Live</h2>
+
+    <p>Let us walk through a simplified example. Say you are deciding between three cities: Austin, Denver, and Portland. Your criteria are:</p>
+
+    <ul>
+      <li>Cost of living</li>
+      <li>Job market</li>
+      <li>Climate</li>
+      <li>Social scene</li>
+    </ul>
+
+    <p><strong>First, you compare the criteria in pairs:</strong></p>
+
+    <ul>
+      <li>Cost of living vs. Job market: Job market is moderately more important (3)</li>
+      <li>Cost of living vs. Climate: Equal importance (1)</li>
+      <li>Cost of living vs. Social scene: Cost of living is strongly more important (5)</li>
+      <li>Job market vs. Climate: Job market is moderately more important (3)</li>
+      <li>Job market vs. Social scene: Job market is strongly more important (5)</li>
+      <li>Climate vs. Social scene: Climate is moderately more important (3)</li>
+    </ul>
+
+    <p><strong>The math calculates these weights:</strong></p>
+
+    <ul>
+      <li>Job market: 46.8%</li>
+      <li>Cost of living: 27.7%</li>
+      <li>Climate: 16.4%</li>
+      <li>Social scene: 9.1%</li>
+    </ul>
+
+    <p>Now you have a clear picture of what actually matters to you -- not what you thought mattered, but what your pairwise judgments reveal. Many people are surprised by their own results. They thought they cared most about climate, but when forced to compare it head-to-head with job market and cost of living, they consistently ranked it lower.</p>
+
+    <p><strong>Then you compare the cities against each criterion</strong>, and the math produces a final ranking. No guesswork. No "sleeping on it." Just clear, mathematically sound reasoning that reflects your actual priorities.</p>
+
+    <h2>Why This Matters for Everyday Decisions</h2>
+
+    <p>You might be thinking: "This is great for NASA, but I am not choosing a nuclear reactor." Fair point. But consider how many decisions you face that involve multiple competing factors:</p>
+
+    <ul>
+      <li>Which job offer to accept</li>
+      <li>Whether to buy or rent</li>
+      <li>Which car to purchase</li>
+      <li>Which school for your kids</li>
+      <li>Whether to start a business or stay employed</li>
+      <li>Which health insurance plan to pick</li>
+    </ul>
+
+    <p>Each of these involves trade-offs between factors that are difficult to compare directly. How do you weigh salary against commute time against company culture against growth potential? A pros and cons list does not cut it. A spreadsheet with arbitrary 1-to-10 ratings does not cut it either, because those ratings are not calibrated against each other.</p>
+
+    <p>AHP gives you a rigorous framework that works for any decision with multiple criteria and multiple options. It has been validated in thousands of academic studies and used in industries ranging from healthcare to defense to urban planning.</p>
+
+    <h2>From Mission Control to Your Pocket</h2>
+
+    <p>The challenge with AHP has always been accessibility. The math is not trivial. Building comparison matrices, calculating eigenvectors, checking consistency ratios -- this is not something most people want to do by hand. Even spreadsheet implementations are clunky and error-prone.</p>
+
+    <p>That is why we built <strong>Decisio</strong>. It is an iOS app that puts the full power of the Analytic Hierarchy Process in your pocket, without requiring you to understand the math behind it. You define your decision, add your criteria and options, and the app walks you through simple pairwise comparisons: "Which matters more to you, and by how much?"</p>
+
+    <p>Behind the scenes, Decisio runs the same mathematical framework that NASA uses. It calculates your criteria weights, scores your alternatives, checks your consistency, and gives you a clear, defensible result. The whole process takes about two minutes.</p>
+
+    <p>It also includes AI-powered analysis that can suggest criteria you might have overlooked and explain the reasoning behind your results in plain language.</p>
+
+    <p>You get three free decisions to try it out. No sign-up required.</p>
+
+    <hr>
+
+    <div class="article-cta">
+      <h3>Try Decisio Free</h3>
+      <p>Run this analysis in 2 minutes instead of 2 hours. The same math NASA uses, right on your iPhone.</p>
+      <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_how-nasa-makes-decisions&mt=8" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="app-store-btn-text">
+          <span class="app-store-btn-sub">Download on the</span>
+          <span class="app-store-btn-main">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 14px; color: var(--text-tertiary); font-style: italic;">Decisio uses the Analytic Hierarchy Process (AHP) to help you make better decisions. Available on iOS.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-icon" aria-hidden="true">D</span>
+      Decisio
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
+      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
+      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
+    </nav>
+    <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>
+  </div>
+</footer>
+
+<!-- Amplitude Analytics -->
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+<script>
+(function() {
+  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
+    defaultTracking: { pageViews: true, sessions: true }
+  });
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || params.get('ref') || 'direct';
+  var medium = params.get('utm_medium') || 'organic';
+  var campaign = params.get('utm_campaign') || '';
+  amplitude.track('blog_article_viewed', {
+    article_slug: 'how-nasa-makes-decisions',
+    source: source,
+    medium: medium,
+    campaign: campaign,
+    referrer: document.referrer || 'none'
+  });
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      amplitude.track('app_store_clicked', { position: 'blog_how-nasa-makes-decisions', source: source });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

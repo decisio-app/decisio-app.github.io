@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Choose Between Two Job Offers: A Data-Driven Approach - Decisio</title>
+<meta name="description" content="Struggling to pick between two job offers? Use the same decision framework NASA uses to make high-stakes choices. Step-by-step guide with real examples.">
+<link rel="canonical" href="https://decisio-app.github.io/blog/how-to-choose-between-job-offers.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How to Choose Between Two Job Offers: A Data-Driven Approach">
+<meta property="og:description" content="Struggling to pick between two job offers? Use the same decision framework NASA uses to make high-stakes choices. Step-by-step guide with real examples.">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="https://decisio-app.github.io/blog/how-to-choose-between-job-offers.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Decisio">
+<meta property="article:published_time" content="2026-03-19">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Choose Between Two Job Offers: A Data-Driven Approach">
+<meta name="twitter:description" content="Struggling to pick between two job offers? Use the same decision framework NASA uses.">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+<!-- Apple Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6752439703">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: #121419; color: #ffffff; line-height: 1.6; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: #5989D9; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #7BA3E6; }
+:root {
+  --accent: #5989D9; --accent-dark: #4773B8;
+  --bg-primary: #121419; --bg-secondary: #1C212E; --bg-tertiary: #29303F;
+  --text-primary: #ffffff; --text-secondary: rgba(255,255,255,0.65); --text-tertiary: rgba(255,255,255,0.45);
+  --border-subtle: rgba(255,255,255,0.08); --border-light: rgba(255,255,255,0.12);
+  --radius-sm: 12px; --radius-lg: 20px; --max-width: 1120px;
+}
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 24px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(18,20,25,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;
+}
+.header-logo-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
+.header-nav a:hover { color: var(--text-primary); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; background: var(--accent); color: #fff !important;
+  border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.header-cta:hover { background: var(--accent-dark); color: #fff !important; transform: translateY(-1px); }
+.header-cta svg { width: 16px; height: 16px; }
+@media (max-width: 768px) {
+  .header-nav a:not(.header-cta) { display: none; }
+  .site-header { padding: 0 16px; }
+}
+.article-wrapper { max-width: 720px; margin: 0 auto; padding: 120px 24px 60px; }
+.article-meta { margin-bottom: 32px; }
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+.article-back:hover { color: var(--accent); }
+.article-date { font-size: 14px; color: var(--text-tertiary); margin-bottom: 12px; }
+.article-title {
+  font-size: clamp(30px, 4.5vw, 44px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
+}
+.article-subtitle {
+  font-size: clamp(16px, 2vw, 19px); color: var(--text-secondary); line-height: 1.6;
+}
+.article-body h2 {
+  font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.25;
+  margin: 48px 0 16px; color: var(--text-primary);
+}
+.article-body h3 {
+  font-size: clamp(18px, 2.5vw, 22px); font-weight: 700;
+  letter-spacing: -0.01em; line-height: 1.3;
+  margin: 36px 0 12px; color: var(--text-primary);
+}
+.article-body p {
+  font-size: 17px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 20px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 24px; color: var(--text-secondary);
+}
+.article-body li { font-size: 17px; line-height: 1.75; margin-bottom: 8px; }
+.article-body strong { color: var(--text-primary); font-weight: 600; }
+.article-body em { font-style: italic; }
+.article-body hr { border: none; border-top: 1px solid var(--border-subtle); margin: 48px 0; }
+.article-cta {
+  margin: 56px 0 0;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(89,137,217,0.1) 0%, rgba(89,137,217,0.03) 100%);
+  border: 1px solid rgba(89,137,217,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.article-cta h3 {
+  font-size: 24px; font-weight: 700; margin: 0 0 8px; color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.article-cta p {
+  font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;
+}
+.app-store-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; background: #fff; color: #000 !important;
+  border-radius: var(--radius-sm); font-size: 16px; font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.app-store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+  color: #000 !important;
+}
+.app-store-btn svg { width: 22px; height: 22px; }
+.app-store-btn-text { display: flex; flex-direction: column; line-height: 1.2; }
+.app-store-btn-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.02em; }
+.app-store-btn-main { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+@media (max-width: 480px) {
+  .article-wrapper { padding: 100px 16px 40px; }
+}
+.site-footer { border-top: 1px solid var(--border-subtle); padding: 48px 24px; }
+.footer-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+.footer-logo-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-tertiary); }
+.footer-links a:hover { color: var(--text-primary); }
+.footer-copyright { font-size: 13px; color: var(--text-tertiary); }
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <a href="/" class="header-logo" aria-label="Decisio home">
+    <span class="header-logo-icon" aria-hidden="true">D</span>
+    Decisio
+  </a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_how-to-choose-between-job-offers&mt=8" class="header-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </nav>
+</header>
+
+<main class="article-wrapper">
+  <div class="article-meta">
+    <a href="/blog/" class="article-back">&larr; Back to Blog</a>
+    <div class="article-date">March 19, 2026</div>
+    <h1 class="article-title">How to Choose Between Two Job Offers: A Data-Driven Approach</h1>
+    <p class="article-subtitle">A step-by-step framework for making career decisions with confidence, using the same math NASA relies on.</p>
+  </div>
+
+  <div class="article-body">
+
+    <p>You got two offers. Congratulations -- that is genuinely a great problem to have.</p>
+
+    <p>But it does not feel great, does it? One pays more. The other has better culture. Your partner likes the location of company A, but your gut says company B. You have made seventeen pros/cons lists and they all come out roughly even.</p>
+
+    <p>Here is the uncomfortable truth: your gut is not going to solve this one. And your pros/cons list is structurally flawed (we will get to why). What you need is a framework that forces you to be honest about what actually matters to you -- and then does the math.</p>
+
+    <h2>Why Pros/Cons Lists Fail for Job Decisions</h2>
+
+    <p>The pros/cons list is the most popular decision tool in the world, and it has a fatal flaw: it treats every item as equally important.</p>
+
+    <p>"Has a gym in the office" counts the same as "pays $30,000 more per year." "Shorter commute" weighs the same as "reports to a CEO I deeply respect."</p>
+
+    <p>Your brain knows these things are not equal. But the list does not. So you end up counting items instead of weighing them -- and the job with more minor perks wins over the job with fewer but life-changing advantages.</p>
+
+    <p>This is not a theoretical problem. Research in behavioral economics shows that when people use unweighted lists, they systematically overvalue quantity of factors over quality of factors. Daniel Kahneman called this "attribute substitution" -- your brain replaces a hard question (which job is better for my life?) with an easy one (which list is longer?).</p>
+
+    <h2>The Framework That Actually Works</h2>
+
+    <p>There is a method called the <strong>Analytic Hierarchy Process</strong>, or AHP. It was developed by mathematician Thomas Saaty in the 1970s and is now used by NASA, Boeing, the World Bank, and thousands of organizations worldwide for high-stakes decisions.</p>
+
+    <p>The core idea is simple: instead of listing everything at once, you compare only two things at a time. And you compare them on a scale, not just "better or worse."</p>
+
+    <p>Here is how to apply it to your job decision.</p>
+
+    <h2>Step 1: Define Your Criteria (Not Your Options)</h2>
+
+    <p>Before you think about the two companies, think about what matters to you in a job. Not what the offers include -- what you value.</p>
+
+    <p>Common criteria for job decisions:</p>
+
+    <ul>
+      <li><strong>Compensation</strong> (salary + equity + bonus + benefits)</li>
+      <li><strong>Growth potential</strong> (promotion path, learning opportunities, mentorship)</li>
+      <li><strong>Work-life balance</strong> (hours, flexibility, remote policy)</li>
+      <li><strong>Culture and team</strong> (management style, coworkers, company values)</li>
+      <li><strong>Location</strong> (commute, city, relocation requirements)</li>
+      <li><strong>Job security</strong> (company stability, industry outlook, runway)</li>
+      <li><strong>Mission alignment</strong> (do you care about what the company does?)</li>
+    </ul>
+
+    <p>Pick 4 to 7 criteria. Fewer than 4 and you are oversimplifying. More than 7 and the comparisons become exhausting.</p>
+
+    <p>For this example, let us use five: Compensation, Growth, Work-Life Balance, Culture, and Location.</p>
+
+    <h2>Step 2: Weight Your Criteria with Pairwise Comparison</h2>
+
+    <p>This is where AHP diverges from every other method. Instead of assigning arbitrary weights (how do you even decide if compensation is "40% important"?), you compare criteria two at a time.</p>
+
+    <p>Ask yourself:</p>
+
+    <ul>
+      <li>Is compensation more important than growth? By how much?</li>
+      <li>Is growth more important than work-life balance?</li>
+      <li>Is work-life balance more important than culture?</li>
+      <li>... and so on for every pair.</li>
+    </ul>
+
+    <p>Use a 1-to-9 scale:</p>
+
+    <ul>
+      <li><strong>1</strong> = equally important</li>
+      <li><strong>3</strong> = moderately more important</li>
+      <li><strong>5</strong> = strongly more important</li>
+      <li><strong>7</strong> = very strongly more important</li>
+      <li><strong>9</strong> = extremely more important</li>
+    </ul>
+
+    <p>For example: "Compensation vs. Growth -- I think compensation is moderately more important, so I give it a 3."</p>
+
+    <p>With 5 criteria, you make 10 pairwise comparisons. It takes about 3 minutes.</p>
+
+    <p>The math (eigenvector calculation) then converts your pairwise judgments into precise percentage weights. You might discover that your criteria weights are:</p>
+
+    <ul>
+      <li>Compensation: 38%</li>
+      <li>Growth: 28%</li>
+      <li>Work-Life Balance: 18%</li>
+      <li>Culture: 10%</li>
+      <li>Location: 6%</li>
+    </ul>
+
+    <p>This is already more honest than anything you would have written down directly. Most people are surprised by their own weights -- they say "culture matters a lot to me" but when forced to compare it against salary, they consistently choose salary. AHP reveals your <strong>actual priorities</strong>, not your aspirational ones.</p>
+
+    <h2>Step 3: Consistency Check</h2>
+
+    <p>Here is where AHP gets really powerful. It checks whether your judgments are logically consistent.</p>
+
+    <p>If you said compensation is more important than growth, and growth is more important than culture, but then you said culture is more important than compensation -- that is a contradiction. AHP detects this and gives you a consistency ratio. If it is above 0.10, your judgments have internal conflicts and you should revisit them.</p>
+
+    <p>No pros/cons list will ever tell you that your own thinking is contradictory. AHP will.</p>
+
+    <h2>Step 4: Score Your Options Against Each Criterion</h2>
+
+    <p>Now you bring in the two job offers. For each criterion, compare the two offers:</p>
+
+    <p><strong>Compensation:</strong> Company A offers $140K, Company B offers $125K. Company A is moderately better (3 on the scale).</p>
+
+    <p><strong>Growth:</strong> Company B is a startup with a clear path to VP. Company A is a large corporation with slower advancement. Company B is strongly better (5).</p>
+
+    <p><strong>Work-Life Balance:</strong> Company A has strict 9-to-5, Company B expects some weekend work. Company A is moderately better (3).</p>
+
+    <p><strong>Culture:</strong> You met both teams. Company B felt energizing, Company A felt corporate. Company B is strongly better (5).</p>
+
+    <p><strong>Location:</strong> Company A is 10 minutes from home. Company B requires relocation. Company A is very strongly better (7).</p>
+
+    <h2>Step 5: Calculate the Result</h2>
+
+    <p>The math multiplies your option scores by your criteria weights and produces a final ranking:</p>
+
+    <ul>
+      <li><strong>Company A: 52%</strong></li>
+      <li><strong>Company B: 48%</strong></li>
+    </ul>
+
+    <p>This is close -- and that is valuable information. It tells you this is genuinely a tough call, not a clear winner. But Company A edges ahead because your high weight on compensation (38%) outweighs Company B's advantages in growth and culture.</p>
+
+    <p>Now you have something to work with. You can ask: "What would have to change for Company B to win?" Maybe if Company B matched salary, the result flips. That is a negotiation insight, not just a decision insight.</p>
+
+    <h2>Step 6: Devil's Advocate</h2>
+
+    <p>Before you accept, challenge the result. Ask yourself (or have someone ask you):</p>
+
+    <ul>
+      <li>Am I overweighting compensation because it is easy to measure?</li>
+      <li>Is the growth at Company B really as strong as I rated it?</li>
+      <li>Am I undervaluing culture because I have never had a toxic work environment?</li>
+    </ul>
+
+    <p>If you adjust any rating and the winner changes, the decision is fragile. If the winner holds across adjustments, you can commit with confidence.</p>
+
+    <h2>Doing This in Practice</h2>
+
+    <p>You can run this process on paper (it takes 30-45 minutes with a calculator) or in a spreadsheet (search for "AHP Excel template").</p>
+
+    <p>Or you can use <strong>Decisio</strong>, which walks you through the entire process in about 10 minutes. It handles the math, checks your consistency, and even uses AI to suggest criteria you might have missed. The "Job Offer" template comes preloaded with the most common criteria for career decisions.</p>
+
+    <p>Three decisions are free -- no account required.</p>
+
+    <h2>The Takeaway</h2>
+
+    <p>The goal is not to remove emotion from your job decision. The goal is to understand exactly how much each factor matters to you, check that your thinking is consistent, and then make the call with clarity instead of anxiety.</p>
+
+    <p>The job you choose will shape the next 2 to 5 years of your life. It deserves 10 minutes of structured analysis, not another midnight pros/cons list on the back of an envelope.</p>
+
+    <hr>
+
+    <div class="article-cta">
+      <h3>Try Decisio Free</h3>
+      <p>Use the "Job Offer" template to compare your options in 10 minutes. The same math NASA uses, right on your iPhone.</p>
+      <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_how-to-choose-between-job-offers&mt=8" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="app-store-btn-text">
+          <span class="app-store-btn-sub">Download on the</span>
+          <span class="app-store-btn-main">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 14px; color: var(--text-tertiary); font-style: italic;">Decisio uses the Analytic Hierarchy Process (AHP) to help you make better decisions. Available on iOS.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-icon" aria-hidden="true">D</span>
+      Decisio
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
+      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
+      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
+    </nav>
+    <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>
+  </div>
+</footer>
+
+<!-- Amplitude Analytics -->
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+<script>
+(function() {
+  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
+    defaultTracking: { pageViews: true, sessions: true }
+  });
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || params.get('ref') || 'direct';
+  var medium = params.get('utm_medium') || 'organic';
+  var campaign = params.get('utm_campaign') || '';
+  amplitude.track('blog_article_viewed', {
+    article_slug: 'how-to-choose-between-job-offers',
+    source: source,
+    medium: medium,
+    campaign: campaign,
+    referrer: document.referrer || 'none'
+  });
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      amplitude.track('app_store_clicked', { position: 'blog_how-to-choose-between-job-offers', source: source });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

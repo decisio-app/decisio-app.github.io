@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Matrix Template: The Complete Guide (2026) - Decisio</title>
+<meta name="description" content="Free decision matrix template and step-by-step guide. Learn why basic matrices fail and how AHP-based analysis produces more accurate results.">
+<link rel="canonical" href="https://decisio-app.github.io/blog/decision-matrix-template-guide.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Decision Matrix Template: The Complete Guide (2026)">
+<meta property="og:description" content="Free decision matrix template and step-by-step guide. Learn why basic matrices fail and how AHP-based analysis produces more accurate results.">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="https://decisio-app.github.io/blog/decision-matrix-template-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Decisio">
+<meta property="article:published_time" content="2026-03-19">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Decision Matrix Template: The Complete Guide (2026)">
+<meta name="twitter:description" content="Free decision matrix template and step-by-step guide. Learn why basic matrices fail.">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+<!-- Apple Smart App Banner -->
+<meta name="apple-itunes-app" content="app-id=6752439703">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: #121419; color: #ffffff; line-height: 1.6; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+a { color: #5989D9; text-decoration: none; transition: color 0.2s ease; }
+a:hover { color: #7BA3E6; }
+:root {
+  --accent: #5989D9; --accent-dark: #4773B8;
+  --bg-primary: #121419; --bg-secondary: #1C212E; --bg-tertiary: #29303F;
+  --text-primary: #ffffff; --text-secondary: rgba(255,255,255,0.65); --text-tertiary: rgba(255,255,255,0.45);
+  --border-subtle: rgba(255,255,255,0.08); --border-light: rgba(255,255,255,0.12);
+  --radius-sm: 12px; --radius-lg: 20px; --max-width: 1120px;
+}
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 24px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(18,20,25,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.header-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;
+}
+.header-logo-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.header-nav { display: flex; align-items: center; gap: 28px; }
+.header-nav a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
+.header-nav a:hover { color: var(--text-primary); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; background: var(--accent); color: #fff !important;
+  border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.header-cta:hover { background: var(--accent-dark); color: #fff !important; transform: translateY(-1px); }
+.header-cta svg { width: 16px; height: 16px; }
+@media (max-width: 768px) {
+  .header-nav a:not(.header-cta) { display: none; }
+  .site-header { padding: 0 16px; }
+}
+.article-wrapper { max-width: 720px; margin: 0 auto; padding: 120px 24px 60px; }
+.article-meta { margin-bottom: 32px; }
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 500; color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+.article-back:hover { color: var(--accent); }
+.article-date { font-size: 14px; color: var(--text-tertiary); margin-bottom: 12px; }
+.article-title {
+  font-size: clamp(30px, 4.5vw, 44px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
+}
+.article-subtitle {
+  font-size: clamp(16px, 2vw, 19px); color: var(--text-secondary); line-height: 1.6;
+}
+.article-body h2 {
+  font-size: clamp(22px, 3vw, 28px); font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.25;
+  margin: 48px 0 16px; color: var(--text-primary);
+}
+.article-body h3 {
+  font-size: clamp(18px, 2.5vw, 22px); font-weight: 700;
+  letter-spacing: -0.01em; line-height: 1.3;
+  margin: 36px 0 12px; color: var(--text-primary);
+}
+.article-body p {
+  font-size: 17px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 20px;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 24px; color: var(--text-secondary);
+}
+.article-body li { font-size: 17px; line-height: 1.75; margin-bottom: 8px; }
+.article-body strong { color: var(--text-primary); font-weight: 600; }
+.article-body em { font-style: italic; }
+.article-body hr { border: none; border-top: 1px solid var(--border-subtle); margin: 48px 0; }
+.article-body pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.article-body code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 15px;
+}
+.article-cta {
+  margin: 56px 0 0;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(89,137,217,0.1) 0%, rgba(89,137,217,0.03) 100%);
+  border: 1px solid rgba(89,137,217,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.article-cta h3 {
+  font-size: 24px; font-weight: 700; margin: 0 0 8px; color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.article-cta p {
+  font-size: 16px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6;
+}
+.app-store-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px; background: #fff; color: #000 !important;
+  border-radius: var(--radius-sm); font-size: 16px; font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.app-store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+  color: #000 !important;
+}
+.app-store-btn svg { width: 22px; height: 22px; }
+.app-store-btn-text { display: flex; flex-direction: column; line-height: 1.2; }
+.app-store-btn-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.02em; }
+.app-store-btn-main { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+@media (max-width: 480px) {
+  .article-wrapper { padding: 100px 16px 40px; }
+}
+.site-footer { border-top: 1px solid var(--border-subtle); padding: 48px 24px; }
+.footer-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; }
+.footer-logo-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: var(--text-tertiary); }
+.footer-links a:hover { color: var(--text-primary); }
+.footer-copyright { font-size: 13px; color: var(--text-tertiary); }
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <a href="/" class="header-logo" aria-label="Decisio home">
+    <span class="header-logo-icon" aria-hidden="true">D</span>
+    Decisio
+  </a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_decision-matrix-template-guide&mt=8" class="header-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </nav>
+</header>
+
+<main class="article-wrapper">
+  <div class="article-meta">
+    <a href="/blog/" class="article-back">&larr; Back to Blog</a>
+    <div class="article-date">March 19, 2026</div>
+    <h1 class="article-title">Decision Matrix Template: The Complete Guide (2026)</h1>
+    <p class="article-subtitle">A ready-to-use template, step-by-step instructions, and why basic matrices break down on complex decisions.</p>
+  </div>
+
+  <div class="article-body">
+
+    <p>You have a decision to make. Multiple options, multiple factors, and no clear winner. So you do what any reasonable person does: you open a spreadsheet and build a decision matrix.</p>
+
+    <p>Good instinct. A decision matrix is one of the most practical tools for structured decision-making. But most templates you will find online have a critical flaw that can lead you to the wrong answer.</p>
+
+    <p>This guide covers everything: what a decision matrix is, how to build one, a ready-to-use template, and -- importantly -- where basic matrices break down and what to use instead.</p>
+
+    <h2>What Is a Decision Matrix?</h2>
+
+    <p>A decision matrix (also called a Pugh matrix, weighted scoring model, or criteria matrix) is a table that helps you evaluate multiple options against multiple criteria. Instead of holding all the factors in your head and hoping your brain sorts them correctly, you externalize the analysis into a structured format.</p>
+
+    <p>At its core, a decision matrix has:</p>
+
+    <ul>
+      <li><strong>Rows</strong> for each option you are considering</li>
+      <li><strong>Columns</strong> for each criterion that matters to you</li>
+      <li><strong>Scores</strong> in each cell rating how well an option meets a criterion</li>
+      <li><strong>Weights</strong> indicating how important each criterion is</li>
+      <li><strong>A total score</strong> for each option, calculated by multiplying scores by weights and summing</li>
+    </ul>
+
+    <p>The option with the highest total score is your recommended choice.</p>
+
+    <h2>Step-by-Step: Building a Basic Decision Matrix</h2>
+
+    <p>Let us walk through a concrete example. Say you are choosing a project management tool for your team. Your options are Asana, Monday.com, and Notion. Your criteria are ease of use, features, pricing, and integrations.</p>
+
+    <h3>Step 1: List Your Options and Criteria</h3>
+
+    <p>Write your options as rows and criteria as columns.</p>
+
+    <h3>Step 2: Assign Weights to Criteria</h3>
+
+    <p>Rate each criterion's importance on a scale (typically 1-5 or 1-10). Be honest about what actually matters versus what sounds like it should matter.</p>
+
+    <h3>Step 3: Score Each Option</h3>
+
+    <p>Rate how well each option performs on each criterion, using the same scale.</p>
+
+    <h3>Step 4: Calculate Weighted Scores</h3>
+
+    <p>Multiply each score by its criterion weight.</p>
+
+    <h3>Step 5: Sum the Totals</h3>
+
+    <p>Add up the weighted scores for each option.</p>
+
+    <p>Here is the completed matrix:</p>
+
+<pre>DECISION: Best Project Management Tool for Our Team
+
+                  Ease of Use   Features   Pricing   Integrations   TOTAL
+Weight:               4             3          5          2
+-----------------------------------------------------------------------
+Asana                 4(16)       4(12)      3(15)      5(10)          53
+Monday.com            3(12)       5(15)      2(10)      4(8)           45
+Notion                5(20)       3(9)       4(20)      3(6)           55
+-----------------------------------------------------------------------
+Format: raw score (weighted score)
+
+Winner: Notion (55 points)</pre>
+
+    <p>Notion wins because it scores highest on the two most heavily weighted criteria: pricing and ease of use. Even though Monday.com has the best features, that criterion carries less weight.</p>
+
+    <h2>A Blank Template You Can Copy</h2>
+
+<pre>DECISION: [Your decision]
+
+                  [Criterion 1]  [Criterion 2]  [Criterion 3]  [Criterion 4]  TOTAL
+Weight:               ?              ?              ?              ?
+--------------------------------------------------------------------------
+[Option A]         ?(?)           ?(?)           ?(?)           ?(?)           ?
+[Option B]         ?(?)           ?(?)           ?(?)           ?(?)           ?
+[Option C]         ?(?)           ?(?)           ?(?)           ?(?)           ?
+--------------------------------------------------------------------------
+Scale: 1 (worst) to 5 (best)
+Weight scale: 1 (least important) to 5 (most important)
+Weighted score = raw score x weight</pre>
+
+    <p><strong>How to use it:</strong></p>
+
+    <ol>
+      <li>Replace the bracketed text with your specific decision, options, and criteria</li>
+      <li>Assign a weight (1-5) to each criterion based on importance</li>
+      <li>Score each option (1-5) on each criterion</li>
+      <li>Multiply score by weight for the weighted score (shown in parentheses)</li>
+      <li>Sum each row for the total</li>
+    </ol>
+
+    <p>This works. It is better than a pros and cons list. It is better than gut feeling. For simple decisions with 2-3 options and clear criteria, a basic decision matrix is often sufficient.</p>
+
+    <p>But there is a problem.</p>
+
+    <h2>Where Basic Decision Matrices Break Down</h2>
+
+    <p>If you have used decision matrices before, you may have noticed something uncomfortable: the results are highly sensitive to how you assign weights and scores. Change a single weight by one point and the winner can flip entirely.</p>
+
+    <p>This is not a minor issue. It points to three fundamental flaws in the basic weighted scoring approach:</p>
+
+    <h3>Flaw 1: Arbitrary Weight Assignment</h3>
+
+    <p>When you assign a weight of 4 to ease of use and 3 to features, what does that actually mean? Is ease of use 33% more important than features? Is it twice as important when the decision is close? The basic matrix does not define this relationship precisely.</p>
+
+    <p>Different people will assign different numbers to the same relative preference. One person's "4 out of 5" for importance is another person's "3 out of 5." There is no calibration.</p>
+
+    <h3>Flaw 2: Unanchored Scoring</h3>
+
+    <p>Rating Notion a 5 for ease of use and Asana a 4 tells you Notion is better. But how much better? Is it slightly better or dramatically better? A one-point difference on a 5-point scale could mean anything.</p>
+
+    <p>Even worse, there is no guarantee your scores are consistent. You might rate Option A a 4 and Option B a 3 on one criterion, but if asked to compare them directly, you might say they are nearly identical. The matrix does not catch this.</p>
+
+    <h3>Flaw 3: No Consistency Checking</h3>
+
+    <p>A basic decision matrix accepts whatever numbers you put in. If your weights are internally contradictory (you say pricing matters most but then give high scores to the most expensive option because of its features), the matrix will not flag this. It just calculates the wrong answer with confidence.</p>
+
+    <h3>Flaw 4: Scale Sensitivity</h3>
+
+    <p>The result depends heavily on the scale you choose. A 1-5 scale compresses differences. A 1-10 scale amplifies them. A 1-100 scale introduces false precision. There is no mathematically optimal scale for the basic approach because the basic approach is not mathematically grounded.</p>
+
+    <h2>The Fix: How AHP Improves the Decision Matrix</h2>
+
+    <p>The Analytic Hierarchy Process, developed by mathematician Thomas Saaty in the 1970s, solves all four of these problems. It is essentially a decision matrix that has been rebuilt on a mathematical foundation.</p>
+
+    <p>Here is how AHP differs from a basic weighted matrix:</p>
+
+    <h3>Pairwise Comparisons Instead of Arbitrary Weights</h3>
+
+    <p>Instead of assigning a weight of 1-5 to each criterion independently, AHP asks you to compare every pair of criteria. "Is ease of use more important than pricing? How much more?" This produces weights that are mathematically derived from your actual preferences, not guessed at.</p>
+
+    <p>This might seem like more work, but it is actually easier cognitively. Comparing two things directly ("Do I care more about salary or location?") is a natural human judgment. Assigning abstract numerical weights to seven criteria simultaneously is not.</p>
+
+    <h3>Relative Scoring Instead of Absolute Scoring</h3>
+
+    <p>Similarly, instead of rating each option on an absolute scale, AHP compares options in pairs for each criterion. "Is Notion easier to use than Asana? How much easier?" This eliminates the problem of unanchored scales because every judgment is relative.</p>
+
+    <h3>Built-in Consistency Ratio</h3>
+
+    <p>AHP calculates a consistency ratio for your comparisons. If you say A is better than B, B is better than C, but C is better than A, the algorithm catches this logical contradiction and asks you to reconsider. This is like having a fact-checker review your reasoning before you commit to a decision.</p>
+
+    <h3>Mathematically Grounded Scale</h3>
+
+    <p>The Saaty scale (1-9) is not arbitrary. It was specifically designed and validated through research to map to human perception of relative importance. A score of 3 means "moderately more important." A score of 9 means "extremely more important." The scale is bounded and anchored with clear definitions at each point.</p>
+
+    <h2>AHP vs. Basic Decision Matrix: A Comparison</h2>
+
+<pre>Feature                   Basic Matrix          AHP Matrix
+-----------------------------------------------------------
+Weight assignment         Arbitrary (1-5)       Derived from pairwise comparisons
+Scoring method            Absolute scale        Relative pairwise comparisons
+Consistency check         None                  Built-in consistency ratio
+Mathematical basis        Simple arithmetic     Linear algebra (eigenvectors)
+Result reliability        Depends on user       Mathematically validated
+Cognitive difficulty      High (abstract)       Low (natural comparisons)</pre>
+
+    <h2>When to Use Which</h2>
+
+    <p><strong>Use a basic decision matrix when:</strong></p>
+
+    <ul>
+      <li>You have a simple decision with 2-3 options and 2-3 criteria</li>
+      <li>The criteria are clearly prioritized and you have high confidence in your weights</li>
+      <li>Speed matters more than precision</li>
+      <li>The stakes are low</li>
+    </ul>
+
+    <p><strong>Use AHP when:</strong></p>
+
+    <ul>
+      <li>You have 3 or more options with 3 or more criteria</li>
+      <li>Criteria are difficult to weight (they all feel important)</li>
+      <li>Multiple stakeholders need to agree on a decision</li>
+      <li>The stakes are high (career moves, major purchases, business strategy)</li>
+      <li>You want a defensible, documented rationale for your choice</li>
+    </ul>
+
+    <h2>How to Run an AHP Analysis in Minutes</h2>
+
+    <p>The challenge with AHP has historically been the math. Calculating eigenvectors and consistency ratios by hand is tedious. Spreadsheet implementations exist but are fragile and hard to modify.</p>
+
+    <p><strong>Decisio</strong> is an iOS app that automates the entire AHP process. You define your decision, add criteria and options, and answer simple comparison questions: "Which matters more, and by how much?" The app handles the linear algebra, checks your consistency, and presents a clear result with percentage scores.</p>
+
+    <p>It also uses AI to help you think through your criteria. Describe your decision and the app can suggest factors you might not have considered.</p>
+
+    <p>The free tier gives you three complete decisions -- enough to test it on a real choice you are facing right now.</p>
+
+    <hr>
+
+    <div class="article-cta">
+      <h3>Try Decisio Free</h3>
+      <p>Run an AHP analysis in 2 minutes instead of 2 hours. No spreadsheet required.</p>
+      <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_decision-matrix-template-guide&mt=8" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="app-store-btn-text">
+          <span class="app-store-btn-sub">Download on the</span>
+          <span class="app-store-btn-main">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    <p style="margin-top: 32px; font-size: 14px; color: var(--text-tertiary); font-style: italic;">Decisio uses the Analytic Hierarchy Process (AHP) to help you make better decisions. Available on iOS.</p>
+
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo-icon" aria-hidden="true">D</span>
+      Decisio
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
+      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
+      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
+    </nav>
+    <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>
+  </div>
+</footer>
+
+<!-- Amplitude Analytics -->
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+<script>
+(function() {
+  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
+    defaultTracking: { pageViews: true, sessions: true }
+  });
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || params.get('ref') || 'direct';
+  var medium = params.get('utm_medium') || 'organic';
+  var campaign = params.get('utm_campaign') || '';
+  amplitude.track('blog_article_viewed', {
+    article_slug: 'decision-matrix-template-guide',
+    source: source,
+    medium: medium,
+    campaign: campaign,
+    referrer: document.referrer || 'none'
+  });
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      amplitude.track('app_store_clicked', { position: 'blog_decision-matrix-template-guide', source: source });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>Decisio OG Image</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+    background: #121419;
+    color: #FFFFFF;
+  }
+
+  .card {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Subtle radial glow behind the icon */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -55%);
+    background: radial-gradient(circle, rgba(89,137,217,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Thin accent line at the very top */
+  .accent-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 10%, #5989D9 50%, transparent 90%);
+  }
+
+  /* Logo / icon */
+  .icon {
+    position: relative;
+    width: 108px;
+    height: 108px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #5989D9 0%, #3A62B0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(89,137,217,0.35);
+  }
+
+  /* Stylised "D" inside the icon */
+  .icon-letter {
+    font-size: 58px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #FFFFFF;
+    line-height: 1;
+  }
+
+  /* Small scales-of-justice / balance motif next to the D */
+  .icon-dots {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .icon-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+  }
+
+  /* Title */
+  .title {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .title .highlight {
+    color: #5989D9;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.3px;
+    position: relative;
+  }
+
+  /* Bottom tagline */
+  .bottom-line {
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.48);
+    text-align: center;
+    letter-spacing: 0.8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bottom-line .sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="accent-bar"></div>
+
+    <!-- App icon -->
+    <div class="icon">
+      <span class="icon-letter">D</span>
+      <div class="icon-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="title">
+      <span class="highlight">Decisio</span>: AI Decision Maker
+    </div>
+
+    <!-- Subtitle -->
+    <div class="subtitle">Stop overthinking. Start deciding.</div>
+
+    <!-- Bottom -->
+    <div class="bottom-line">
+      NASA's decision math + AI
+      <span class="sep"></span>
+      Free for iOS
+    </div>
+  </div>
+</body>
+</html>
