@@ -1,0 +1,46 @@
+# Decisio: AI Decision Maker
+
+> iOS app that uses the Analytic Hierarchy Process (AHP) and AI to help users make structured, data-driven decisions. The same mathematical framework trusted by NASA, Boeing, and the World Bank — now on your iPhone.
+
+## Overview
+
+Decisio is the only mobile app that combines real AHP pairwise comparisons with AI-powered analysis. Instead of simple pros/cons lists, users compare criteria and options two at a time on a scientific 1-to-9 scale, with automatic consistency checking that flags contradictions in their thinking.
+
+## Key Features
+
+- AHP Pairwise Comparisons: Full Saaty scale (1-9) with eigenvector calculation and consistency ratio validation
+- AI-Powered Analysis: Criteria suggestions, option suggestions, and executive summaries via Apple Intelligence (on-device) or OpenAI
+- Devil's Advocate: AI challenges the top-ranked choice with specific risks and blind spots
+- Decision Playbook: Save Recipes (what worked) and Principles (lessons learned)
+- Outcome Tracking: Rate past decisions as Right Call, Mixed, or Wrong Call
+- Calibration Score: Personal decision-making accuracy percentage after 5+ rated outcomes
+- PDF/CSV Export: Professional decision analysis reports
+- 10 Built-in Templates: Business Strategy, Career Decision, Investment Analysis, Technology Selection, Hiring, Strategic Planning, Vendor Selection, Product Launch, M&A Analysis, Budget Allocation
+
+## Pricing
+
+- Free: 3 full decisions with Simple Scoring
+- Pro: $2.99/month or $19.99/year (7-day free trial on annual)
+- Pro unlocks: Unlimited decisions, AHP, Devil's Advocate, AI, PDF Export
+
+## Use Cases
+
+- Choosing between job offers
+- Business strategy decisions
+- Major purchases (car, home, laptop)
+- Investment and hiring decisions
+- Relocation decisions
+- Any multi-criteria decision with 2+ options
+
+## What Makes Decisio Different
+
+1. Real AHP methodology with pairwise comparisons and consistency checking
+2. AI Devil's Advocate that challenges your top choice with specific risks
+3. Playbook + Outcome Tracking = feedback loop that improves decisions over time
+4. Privacy-first: on-device AI, data stays in your iCloud
+
+## Links
+
+- App Store: https://apps.apple.com/app/id6752439703
+- Website: https://decisio-app.github.io
+- Blog: https://decisio-app.github.io/blog/
