@@ -10,24 +10,29 @@
 <meta name="description" content="{{ page.description }}">
 {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
 
-<!-- Open Graph -->
 <meta property="og:title" content="{{ page.og_title | default: page.title }}">
 <meta property="og:description" content="{{ page.og_description | default: page.description }}">
 <meta property="og:image" content="https://decisio-app.github.io/og-image.png">
 <meta property="og:url" content="{{ page.canonical | default: site.url | append: page.url }}">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Decisio">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ page.og_title | default: page.title }}">
-<meta name="twitter:description" content="{{ page.og_description | default: page.description }}">
-<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
 
 {% include apple-banner.html %}
 {% include favicon.html %}
+{% include header-styles.html %}
 
+{% assign parts = content | split: '</style>' %}
+{% if parts.size > 1 %}
+{{ parts[0] }}</style>
+{% endif %}
+</head>
+<body>
+
+{% include header.html %}
+
+{% if parts.size > 1 %}
+{{ parts[1] }}
+{% else %}
 {{ content }}
+{% endif %}
 
 {% include amplitude.html %}
 </body>
