@@ -18,21 +18,11 @@
 {% include apple-banner.html %}
 {% include favicon.html %}
 {% include header-styles.html %}
+{% include footer-styles.html %}
 
-{% assign parts = content | split: '</style>' %}
-{% if parts.size > 1 %}
-{{ parts[0] }}</style>
-{% endif %}
-</head>
-<body>
-
-{% include header.html %}
-
-{% if parts.size > 1 %}
-{{ parts[1] }}
-{% else %}
 {{ content }}
-{% endif %}
+
+{% include footer.html %}
 
 {% include amplitude.html %}
 </body>

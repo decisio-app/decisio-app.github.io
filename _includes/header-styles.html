@@ -1,15 +1,5 @@
 <style>
-/* Unified Header Styles */
-:root {
-  --accent: #5989D9;
-  --accent-dark: #4773B8;
-  --bg-primary: #121419;
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.65);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --radius-sm: 12px;
-}
-
+/* Shared Header Styles */
 .site-header {
   position: fixed;
   top: 0;
@@ -24,7 +14,7 @@
   background: rgba(18, 20, 25, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: background 0.3s ease;
 }
 
@@ -34,13 +24,13 @@
   gap: 10px;
   font-size: 18px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
   letter-spacing: -0.02em;
   text-decoration: none;
 }
 
 .header-logo:hover {
-  color: var(--text-primary);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -48,7 +38,7 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: linear-gradient(135deg, #5989D9, #4773B8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +53,7 @@
 }
 
 .header-nav a {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 14px;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -71,7 +61,7 @@
 }
 
 .header-nav a:hover {
-  color: var(--text-primary);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -80,16 +70,16 @@
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  background: var(--accent);
+  background: #5989D9;
   color: #fff !important;
-  border-radius: var(--radius-sm);
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .header-cta:hover {
-  background: var(--accent-dark);
+  background: #4773B8;
   color: #fff !important;
   transform: translateY(-1px);
   text-decoration: none;
@@ -109,7 +99,7 @@
   }
 }
 
-/* Add top padding to body for fixed header */
+/* Body padding for fixed header */
 body {
   padding-top: 64px;
 }
