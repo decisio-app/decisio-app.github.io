@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio vs Best Decision — Which iOS Decision App Is Right for You?</title>
-<meta name="description" content="Honest comparison of Decisio and Best Decision app. Weighted matrix vs AHP pairwise. $1.99 one-time vs $2.99/month. When each one wins — with real examples.">
-<link rel="canonical" href="https://decisio-app.github.io/compare/best-decision">
-<meta property="og:title" content="Decisio vs Best Decision — Honest Comparison">
-<meta property="og:description" content="When $1.99 one-time beats $2.99/month, and when it doesn't. Methodology, features, real use cases.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io/compare/best-decision">
-<meta name="apple-itunes-app" content="app-id=6752439703">
+---
+layout: compare
+title: "Decisio vs Best Decision — Which iOS Decision App Is Right for You?"
+description: "Honest comparison of Decisio and Best Decision app. Weighted matrix vs AHP pairwise. $1.99 one-time vs $2.99/month. When each one wins — with real examples."
+canonical: "https://decisio-app.github.io/compare/best-decision"
+og_title: "Decisio vs Best Decision — Honest Comparison"
+og_description: "When $1.99 one-time beats $2.99/month, and when it doesn't. Methodology, features, real use cases."
+---
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.6}
 a{color:#5989D9;text-decoration:none}
@@ -59,9 +46,9 @@ footer a{color:#888}
 ul{margin:12px 0 12px 20px;color:#ccc}
 li{margin:6px 0}
 @media(max-width:600px){.vs-table{font-size:13px}.vs-table td,.vs-table th{padding:8px 10px}}
+
 </style>
-</head>
-<body>
+
 <header>
   <a href="/" class="logo"><span>Decisio</span></a>
   <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=vs_best_decision_header&mt=8" class="header-cta">Try Decisio Free</a>
@@ -172,31 +159,3 @@ li{margin:6px 0}
   <a href="/">Home</a> &middot; <a href="/compare">All Comparisons</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/legal/privacy.html">Privacy</a> &middot; <a href="/legal/terms.html">Terms</a>
   <br><br>&copy; 2026 Dmitrii Raev. Product names and trademarks belong to their respective owners. Comparisons based on publicly available App Store information as of April 2026.
 </footer>
-
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-window.amplitude.init('7d01d3bca35475ea42a16f39e10773be',{autocapture:{pageViews:true,sessions:true}});
-var params=new URLSearchParams(window.location.search);
-var source=params.get('utm_source')||'direct';
-amplitude.track('compare_page_viewed',{competitor:'best_decision',source:source,referrer:document.referrer||'none'});
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(l){
-  l.addEventListener('click',function(){amplitude.track('app_store_clicked',{position:'vs_best_decision',source:source})});
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Is Best Decision still actively developed?","acceptedAnswer":{"@type":"Answer","text":"Best Decision receives infrequent updates. Its core weighted-matrix algorithm has not changed. It works for its original scope but does not add new methodologies or AI features."}},
-    {"@type":"Question","name":"Can I use Decisio for free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The free tier includes 3 full decisions with Simple Scoring, all 15+ templates, the Playbook, and Outcome Tracking. The 7-day free trial on annual Pro adds unlimited decisions, AHP Pairwise, Devil's Advocate, and AI features."}},
-    {"@type":"Question","name":"What is AHP and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"The Analytic Hierarchy Process (AHP) is a mathematical method for multi-criteria decision analysis developed by Thomas Saaty. You compare options in pairs on a 1-to-9 scale; the math derives priority weights and computes a consistency ratio that flags contradictions in your own judgments, which simple weighted matrices silently ignore."}},
-    {"@type":"Question","name":"Which app is better for group decisions?","acceptedAnswer":{"@type":"Answer","text":"Neither Best Decision nor Decisio is built primarily for real-time group voting. Decisio exports PDFs and Markdown to share analysis with a team. For synchronous group voting, specialized tools like ChoiceMap are better fits."}},
-    {"@type":"Question","name":"Does Decisio work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. The AHP math, templates, and Playbook work offline. AI features require either Apple Intelligence (on-device on iOS 18.2+) or an internet connection with your own OpenAI API key."}}
-  ]
-}
-</script>
-
-</body>
-</html>

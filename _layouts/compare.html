@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% include analytics.html %}
+
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+
+<meta property="og:title" content="{{ page.og_title | default: page.title }}">
+<meta property="og:description" content="{{ page.og_description | default: page.description }}">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="{{ page.canonical | default: site.url | append: page.url }}">
+
+{% include apple-banner.html %}
+
+{{ content }}
+
+{% include amplitude.html %}
+</body>
+</html>

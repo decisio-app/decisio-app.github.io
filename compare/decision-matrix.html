@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio vs Decision Matrix App — AHP vs Classic Matrix, Priced</title>
-<meta name="description" content="Decision Matrix charges $29.99 one-time for a spreadsheet replacement. Decisio runs AHP pairwise with AI for $19.99/year. Feature-by-feature with pricing math.">
-<link rel="canonical" href="https://decisio-app.github.io/compare/decision-matrix">
-<meta property="og:title" content="Decisio vs Decision Matrix — Is $29.99 Once Better Than $19.99/Year?">
-<meta property="og:description" content="Classic matrix vs AHP pairwise with AI. When Decision Matrix wins, when Decisio does, and how the pricing actually shakes out.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io/compare/decision-matrix">
-<meta name="apple-itunes-app" content="app-id=6752439703">
+---
+layout: compare
+title: "Decisio vs Decision Matrix App — AHP vs Classic Matrix, Priced"
+description: "Decision Matrix charges $29.99 one-time for a spreadsheet replacement. Decisio runs AHP pairwise with AI for $19.99/year. Feature-by-feature with pricing math."
+canonical: "https://decisio-app.github.io/compare/decision-matrix"
+og_title: "Decisio vs Decision Matrix — Is $29.99 Once Better Than $19.99/Year?"
+og_description: "Classic matrix vs AHP pairwise with AI. When Decision Matrix wins, when Decisio does, and how the pricing actually shakes out."
+---
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.6}
 a{color:#5989D9;text-decoration:none}
@@ -59,9 +46,9 @@ footer a{color:#888}
 ul{margin:12px 0 12px 20px;color:#ccc}
 li{margin:6px 0}
 @media(max-width:600px){.vs-table{font-size:13px}.vs-table td,.vs-table th{padding:8px 10px}}
+
 </style>
-</head>
-<body>
+
 <header>
   <a href="/" class="logo"><span>Decisio</span></a>
   <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=vs_decision_matrix_header&mt=8" class="header-cta">Try Decisio Free</a>
@@ -169,31 +156,3 @@ li{margin:6px 0}
   <a href="/">Home</a> &middot; <a href="/compare">All Comparisons</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/legal/privacy.html">Privacy</a> &middot; <a href="/legal/terms.html">Terms</a>
   <br><br>&copy; 2026 Dmitrii Raev. Product names and trademarks belong to their respective owners. Comparisons based on publicly available App Store information as of April 2026.
 </footer>
-
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-window.amplitude.init('7d01d3bca35475ea42a16f39e10773be',{autocapture:{pageViews:true,sessions:true}});
-var params=new URLSearchParams(window.location.search);
-var source=params.get('utm_source')||'direct';
-amplitude.track('compare_page_viewed',{competitor:'decision_matrix',source:source,referrer:document.referrer||'none'});
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(l){
-  l.addEventListener('click',function(){amplitude.track('app_store_clicked',{position:'vs_decision_matrix',source:source})});
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"What is the difference between a weighted matrix and AHP?","acceptedAnswer":{"@type":"Answer","text":"A weighted matrix has you assign weights directly and rate options on each criterion. AHP has you compare criteria pairwise on a 1-to-9 scale and derives weights mathematically, adding a consistency ratio that flags contradictions in your pairwise judgments."}},
-    {"@type":"Question","name":"Is AHP harder to use than a classic matrix?","acceptedAnswer":{"@type":"Answer","text":"No. You trade direct weight assignment for quick pairwise comparisons with a slider. Most users find pairwise easier because they only pick relative preferences, not absolute weights. Decisio completes in 5-10 minutes per decision."}},
-    {"@type":"Question","name":"Can Decisio handle the same decision types as Decision Matrix?","acceptedAnswer":{"@type":"Answer","text":"Yes, and more. Decisio includes 15+ templates covering career, purchase, business, travel, life, and custom. A blank template handles any multi-criteria decision."}},
-    {"@type":"Question","name":"Do I lose access to my decisions if I cancel Decisio Pro?","acceptedAnswer":{"@type":"Answer","text":"No. Decisions remain on your device. Pro unlocks new-decision features (unlimited count, AHP, Devil's Advocate, AI, export). If you cancel, existing decisions are still viewable and exportable."}},
-    {"@type":"Question","name":"Does Decisio export to Excel?","acceptedAnswer":{"@type":"Answer","text":"Yes. Decisio exports as Excel (.xlsx), PDF, or Markdown. Every number traces back to your inputs and criteria weights."}}
-  ]
-}
-</script>
-
-</body>
-</html>

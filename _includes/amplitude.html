@@ -1,0 +1,51 @@
+<!-- Amplitude Analytics -->
+<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
+<script>
+(function() {
+  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
+    defaultTracking: { pageViews: true, sessions: true }
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  var source = params.get('utm_source') || params.get('ref') || 'direct';
+  var medium = params.get('utm_medium') || 'organic';
+  var campaign = params.get('utm_campaign') || '';
+  
+  amplitude.track('page_viewed', {
+    page: window.location.pathname,
+    source: source,
+    medium: medium,
+    campaign: campaign,
+    referrer: document.referrer || 'none'
+  });
+
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var section = this.closest('section, header, footer');
+      var position = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
+      amplitude.track('app_store_clicked', {
+        position: position,
+        page: window.location.pathname,
+        source: source,
+        medium: medium,
+        campaign: campaign
+      });
+    });
+  });
+
+  var maxScroll = 0;
+  var milestones = [25, 50, 75, 100];
+  var tracked = {};
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPct > maxScroll) maxScroll = scrollPct;
+    milestones.forEach(function(m) {
+      if (scrollPct >= m && !tracked[m]) {
+        tracked[m] = true;
+        amplitude.track('scroll_depth', { depth: m, page: window.location.pathname, source: source });
+      }
+    });
+  });
+})();
+</script>

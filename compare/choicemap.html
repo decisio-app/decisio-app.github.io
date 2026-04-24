@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio vs ChoiceMap — Personal Rigor vs Group Decisions</title>
-<meta name="description" content="ChoiceMap is for collaborative group voting. Decisio is for deep personal analysis with AHP methodology and AI. See which fits your use case — with a clear verdict.">
-<link rel="canonical" href="https://decisio-app.github.io/compare/choicemap">
-<meta property="og:title" content="Decisio vs ChoiceMap — Which One Fits Your Decision?">
-<meta property="og:description" content="Group voting vs deep personal analysis. When each app wins, with methodology and pricing math.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io/compare/choicemap">
-<meta name="apple-itunes-app" content="app-id=6752439703">
+---
+layout: compare
+title: "Decisio vs ChoiceMap — Personal Rigor vs Group Decisions"
+description: "ChoiceMap is for collaborative group voting. Decisio is for deep personal analysis with AHP methodology and AI. See which fits your use case — with a clear verdict."
+canonical: "https://decisio-app.github.io/compare/choicemap"
+og_title: "Decisio vs ChoiceMap — Which One Fits Your Decision?"
+og_description: "Group voting vs deep personal analysis. When each app wins, with methodology and pricing math."
+---
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.6}
 a{color:#5989D9;text-decoration:none}
@@ -59,9 +46,9 @@ footer a{color:#888}
 ul{margin:12px 0 12px 20px;color:#ccc}
 li{margin:6px 0}
 @media(max-width:600px){.vs-table{font-size:13px}.vs-table td,.vs-table th{padding:8px 10px}}
+
 </style>
-</head>
-<body>
+
 <header>
   <a href="/" class="logo"><span>Decisio</span></a>
   <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=vs_choicemap_header&mt=8" class="header-cta">Try Decisio Free</a>
@@ -163,31 +150,3 @@ li{margin:6px 0}
   <a href="/">Home</a> &middot; <a href="/compare">All Comparisons</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/legal/privacy.html">Privacy</a> &middot; <a href="/legal/terms.html">Terms</a>
   <br><br>&copy; 2026 Dmitrii Raev. Product names and trademarks belong to their respective owners. Comparisons based on publicly available App Store information as of April 2026.
 </footer>
-
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-window.amplitude.init('7d01d3bca35475ea42a16f39e10773be',{autocapture:{pageViews:true,sessions:true}});
-var params=new URLSearchParams(window.location.search);
-var source=params.get('utm_source')||'direct';
-amplitude.track('compare_page_viewed',{competitor:'choicemap',source:source,referrer:document.referrer||'none'});
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(l){
-  l.addEventListener('click',function(){amplitude.track('app_store_clicked',{position:'vs_choicemap',source:source})});
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Can I use Decisio with other people?","acceptedAnswer":{"@type":"Answer","text":"Not in real-time. Decisio exports decisions as PDF, Excel, or Markdown for sharing. For live collaborative voting, ChoiceMap or similar group-decision tools are better fits."}},
-    {"@type":"Question","name":"Is ChoiceMap's methodology as rigorous as AHP?","acceptedAnswer":{"@type":"Answer","text":"No. ChoiceMap uses direct scoring. AHP adds pairwise comparison, eigenvector priority weights, and a consistency ratio that flags contradictions. Decisio is the only consumer iOS app that implements AHP fully."}},
-    {"@type":"Question","name":"Which is better for career decisions?","acceptedAnswer":{"@type":"Answer","text":"Decisio. Career decisions are personal — the criteria and weights are yours alone. Pairwise comparisons force confronting real trade-offs instead of giving everything high scores."}},
-    {"@type":"Question","name":"Does Decisio have an Android version?","acceptedAnswer":{"@type":"Answer","text":"Not currently. Decisio is iOS-only (iPhone and iPad). For cross-platform, ChoiceMap covers both iOS and Android."}},
-    {"@type":"Question","name":"Can I try Decisio before paying?","acceptedAnswer":{"@type":"Answer","text":"Yes. The free tier includes 3 full decisions with Simple Scoring, all 15+ templates, the Playbook, and Outcome Tracking. Annual Pro includes a 7-day free trial that unlocks AHP, Devil's Advocate, and AI."}}
-  ]
-}
-</script>
-
-</body>
-</html>

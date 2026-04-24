@@ -1,0 +1,33 @@
+# Decisio Landing Page - Jekyll Configuration
+title: "Decisio: AI Decision Maker"
+description: "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results."
+url: "https://decisio-app.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+plugins: []
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - og-image.html
+
+# Keep these files as-is (no Jekyll processing)
+include:
+  - googledbde790d1d8b20bb.html
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Site settings
+author: "Dmitrii Raev"
+email: "dmitrii.raev@gmail.com"
+app_store_id: "6752439703"
+google_analytics: "G-4M8W8YY7M9"

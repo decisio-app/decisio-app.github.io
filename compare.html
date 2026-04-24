@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio vs Alternatives - Compare Decision-Making Tools</title>
-<meta name="description" content="Compare Decisio with pros/cons lists, decision matrices, and other decision-making apps. See why AHP pairwise comparisons give better results.">
-<link rel="canonical" href="https://decisio-app.github.io/compare">
-<meta property="og:title" content="Decisio vs Alternatives - Decision-Making Tool Comparison">
-<meta property="og:description" content="Compare Decisio with pros/cons lists, spreadsheets, and other apps. Find the right decision-making tool for you.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io/compare">
-<meta name="apple-itunes-app" content="app-id=6752439703">
+---
+layout: compare
+title: "Decisio vs Alternatives - Compare Decision-Making Tools"
+description: "Compare Decisio with pros/cons lists, decision matrices, and other decision-making apps. See why AHP pairwise comparisons give better results."
+canonical: "https://decisio-app.github.io/compare"
+og_title: "Decisio vs Alternatives - Decision-Making Tool Comparison"
+og_description: "Compare Decisio with pros/cons lists, spreadsheets, and other apps. Find the right decision-making tool for you."
+---
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.6}
 a{color:#5989D9;text-decoration:none}
@@ -71,9 +58,8 @@ footer a{color:#888}
   .vs-table{font-size:13px}
   .vs-table td,.vs-table th{padding:8px 10px}
 }
+
 </style>
-</head>
-<body>
 
 <header>
   <a href="/" class="logo"><span>Decisio</span></a>
@@ -204,30 +190,3 @@ footer a{color:#888}
   <a href="/">Home</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/legal/privacy.html">Privacy</a> &middot; <a href="/legal/terms.html">Terms</a>
   <br><br>&copy; 2026 Dmitrii Raev
 </footer>
-
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-window.amplitude.init('7d01d3bca35475ea42a16f39e10773be',{autocapture:{pageViews:true,sessions:true}});
-var params=new URLSearchParams(window.location.search);
-var source=params.get('utm_source')||'direct';
-amplitude.track('compare_page_viewed',{source:source,referrer:document.referrer||'none'});
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(l){
-  l.addEventListener('click',function(){amplitude.track('app_store_clicked',{position:'compare',source:source})});
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"What is AHP (Analytic Hierarchy Process)?","acceptedAnswer":{"@type":"Answer","text":"AHP is a mathematical framework for multi-criteria decision analysis developed by Thomas Saaty in the 1970s. It is used by NASA, Boeing, the World Bank, and Fortune 500 companies."}},
-    {"@type":"Question","name":"Is Decisio free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Decisio is free for your first 3 decisions. Pro unlocks unlimited decisions, AHP, Devil's Advocate AI, and export for $2.99/month."}},
-    {"@type":"Question","name":"What is Devil's Advocate in Decisio?","acceptedAnswer":{"@type":"Answer","text":"An AI feature that challenges your top choice with specific risks and blind spots based on your actual criteria and scores."}},
-    {"@type":"Question","name":"What is the Decision Playbook?","acceptedAnswer":{"@type":"Answer","text":"A personal knowledge base that saves Recipes (what worked) and Principles (lessons learned) from your past decisions."}}
-  ]
-}
-</script>
-
-</body>
-</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% include analytics.html %}
+
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<meta name="keywords" content="decision making app, AHP, pairwise comparison, AI decision maker, decision framework, iOS app">
+<link rel="canonical" href="{{ page.canonical }}">
+<meta name="google-site-verification" content="9UMdtVX1y_Lpd71ReTW3cNek9EmoOVwNYNZQDqOGCiQ" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ page.og_title }}">
+<meta property="og:description" content="{{ page.og_description }}">
+<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
+<meta property="og:url" content="{{ page.canonical }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Decisio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.og_title }}">
+<meta name="twitter:description" content="{{ page.og_description }}">
+<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
+
+{% include apple-banner.html %}
+{% include favicon.html %}
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Decisio: AI Decision Maker",
+  "operatingSystem": "iOS",
+  "applicationCategory": "ProductivityApplication",
+  "description": "{{ page.description }}",
+  "url": "https://decisio-app.github.io",
+  "downloadUrl": "https://apps.apple.com/app/id{{ site.app_store_id }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "email": "{{ site.email }}"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier with 3 decisions"
+    },
+    {
+      "@type": "Offer",
+      "price": "2.99",
+      "priceCurrency": "USD",
+      "description": "Pro monthly subscription"
+    },
+    {
+      "@type": "Offer",
+      "price": "19.99",
+      "priceCurrency": "USD",
+      "description": "Pro annual subscription with 7-day free trial"
+    }
+  ]
+}
+</script>
+
+{{ content }}
+
+{% include amplitude.html %}
+</body>
+</html>

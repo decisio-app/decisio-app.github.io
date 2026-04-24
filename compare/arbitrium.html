@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio vs Arbitrium — What "Free" Actually Costs You</title>
-<meta name="description" content="Arbitrium is a free decision app with basic weighted scoring. Decisio is a paid app with AHP, AI, and outcome tracking. When free is good enough — and when it isn't.">
-<link rel="canonical" href="https://decisio-app.github.io/compare/arbitrium">
-<meta property="og:title" content="Decisio vs Arbitrium — Is Free Good Enough?">
-<meta property="og:description" content="The real cost of basic decision tools when the decision is high-stakes. Methodology, AI, and the feedback loop that matters.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io/compare/arbitrium">
-<meta name="apple-itunes-app" content="app-id=6752439703">
+---
+layout: compare
+title: "Decisio vs Arbitrium — What "Free" Actually Costs You"
+description: "Arbitrium is a free decision app with basic weighted scoring. Decisio is a paid app with AHP, AI, and outcome tracking. When free is good enough — and when it isn't."
+canonical: "https://decisio-app.github.io/compare/arbitrium"
+og_title: "Decisio vs Arbitrium — Is Free Good Enough?"
+og_description: "The real cost of basic decision tools when the decision is high-stakes. Methodology, AI, and the feedback loop that matters."
+---
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.6}
 a{color:#5989D9;text-decoration:none}
@@ -59,9 +46,9 @@ footer a{color:#888}
 ul{margin:12px 0 12px 20px;color:#ccc}
 li{margin:6px 0}
 @media(max-width:600px){.vs-table{font-size:13px}.vs-table td,.vs-table th{padding:8px 10px}}
+
 </style>
-</head>
-<body>
+
 <header>
   <a href="/" class="logo"><span>Decisio</span></a>
   <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=vs_arbitrium_header&mt=8" class="header-cta">Try Decisio Free</a>
@@ -164,31 +151,3 @@ li{margin:6px 0}
   <a href="/">Home</a> &middot; <a href="/compare">All Comparisons</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/legal/privacy.html">Privacy</a> &middot; <a href="/legal/terms.html">Terms</a>
   <br><br>&copy; 2026 Dmitrii Raev. Product names and trademarks belong to their respective owners. Comparisons based on publicly available App Store information as of April 2026.
 </footer>
-
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-window.amplitude.init('7d01d3bca35475ea42a16f39e10773be',{autocapture:{pageViews:true,sessions:true}});
-var params=new URLSearchParams(window.location.search);
-var source=params.get('utm_source')||'direct';
-amplitude.track('compare_page_viewed',{competitor:'arbitrium',source:source,referrer:document.referrer||'none'});
-document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(l){
-  l.addEventListener('click',function(){amplitude.track('app_store_clicked',{position:'vs_arbitrium',source:source})});
-});
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Is Arbitrium's free version actually free?","acceptedAnswer":{"@type":"Answer","text":"Check the current App Store listing. Many free decision apps now use upgrade prompts, ads, or per-day decision limits. Read the description and recent reviews before relying on any free app for important decisions."}},
-    {"@type":"Question","name":"What does Decisio's free tier actually include?","acceptedAnswer":{"@type":"Answer","text":"3 full decisions with Simple Scoring, all 15+ templates, Playbook, and Outcome Tracking. No ads, no data selling. Usable indefinitely at the free tier if 3 decisions is enough for you."}},
-    {"@type":"Question","name":"Is AHP really better than simple weighted scoring?","acceptedAnswer":{"@type":"Answer","text":"For decisions with 3+ criteria, yes. Pairwise comparisons produce more accurate weights than direct assignment, and AHP's consistency ratio catches logical contradictions that simple weighted scoring cannot detect."}},
-    {"@type":"Question","name":"Can I migrate decisions from Arbitrium to Decisio?","acceptedAnswer":{"@type":"Answer","text":"Not directly. If your current app exports PDFs, you can read criteria and options into a new Decisio decision manually. Re-running important decisions with AHP often reveals insights a simpler tool missed."}},
-    {"@type":"Question","name":"Does Decisio need an internet connection?","acceptedAnswer":{"@type":"Answer","text":"Only for optional AI via OpenAI with your own API key. The core app — AHP, templates, Playbook, Outcome Tracking — works offline. On iOS 18.2+ with Apple Intelligence, AI also runs on-device."}}
-  ]
-}
-</script>
-
-</body>
-</html>

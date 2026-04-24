@@ -1,97 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M8W8YY7M9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4M8W8YY7M9');
-</script>
-
-<title>Decisio: AI Decision Maker - Stop Overthinking, Start Deciding</title>
-<meta name="description" content="Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results. Free for iOS.">
-<meta name="keywords" content="decision making app, AHP, pairwise comparison, AI decision maker, decision framework, iOS app">
-<link rel="canonical" href="https://decisio-app.github.io">
-<meta name="google-site-verification" content="9UMdtVX1y_Lpd71ReTW3cNek9EmoOVwNYNZQDqOGCiQ" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Decisio: AI Decision Maker">
-<meta property="og:description" content="Stop overthinking. Make decisions backed by the same math NASA uses. Free for iOS.">
-<meta property="og:image" content="https://decisio-app.github.io/og-image.png">
-<meta property="og:url" content="https://decisio-app.github.io">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Decisio">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Decisio: AI Decision Maker">
-<meta name="twitter:description" content="Stop overthinking. Make decisions backed by the same math NASA uses.">
-<meta name="twitter:image" content="https://decisio-app.github.io/og-image.png">
-
-<!-- Apple Smart App Banner -->
-<meta name="apple-itunes-app" content="app-id=6752439703">
-
-<!-- Favicon (inline SVG) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121419'/><text y='.9em' x='.15em' font-size='80'>&#x1f9e0;</text></svg>">
-
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Decisio: AI Decision Maker",
-  "operatingSystem": "iOS",
-  "applicationCategory": "ProductivityApplication",
-  "description": "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results.",
-  "url": "https://decisio-app.github.io",
-  "downloadUrl": "https://apps.apple.com/app/id6752439703",
-  "author": {
-    "@type": "Person",
-    "name": "Dmitrii Raev",
-    "email": "dmitrii.raev@gmail.com"
-  },
-  "offers": [
-    {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Free tier with 3 decisions"
-    },
-    {
-      "@type": "Offer",
-      "price": "2.99",
-      "priceCurrency": "USD",
-      "description": "Pro monthly subscription",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "billingDuration": "P1M"
-      }
-    },
-    {
-      "@type": "Offer",
-      "price": "19.99",
-      "priceCurrency": "USD",
-      "description": "Pro annual subscription with 7-day free trial",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "billingDuration": "P1Y"
-      }
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "ratingCount": "1"
-  }
-}
-</script>
-
+---
+layout: landing
+title: "Decisio: AI Decision Maker - Stop Overthinking, Start Deciding"
+description: "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results. Free for iOS."
+canonical: "https://decisio-app.github.io"
+og_title: "Decisio: AI Decision Maker"
+og_description: "Stop overthinking. Make decisions backed by the same math NASA uses. Free for iOS."
+---
 <style>
+
 /* ============================================
    RESET & BASE
    ============================================ */
@@ -1344,9 +1260,8 @@ img {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 </style>
-</head>
-<body>
 
 <!-- ==========================================
      HEADER
@@ -1785,59 +1700,3 @@ img {
   });
 })();
 </script>
-
-<!-- Amplitude Analytics (same project as iOS app) -->
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.0-min.js.gz"></script>
-<script>
-(function() {
-  // Initialize Amplitude with same project as iOS app
-  window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
-    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
-    defaultTracking: { pageViews: true, sessions: true }
-  });
-
-  // Track landing page view with source
-  var params = new URLSearchParams(window.location.search);
-  var source = params.get('utm_source') || params.get('ref') || 'direct';
-  var medium = params.get('utm_medium') || 'organic';
-  var campaign = params.get('utm_campaign') || '';
-  amplitude.track('landing_page_viewed', {
-    source: source,
-    medium: medium,
-    campaign: campaign,
-    referrer: document.referrer || 'none'
-  });
-
-  // Track all App Store link clicks with position context
-  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var section = this.closest('section, header, footer');
-      var position = section ? (section.id || section.className.split(' ')[0]) : 'unknown';
-      amplitude.track('app_store_clicked', {
-        position: position,
-        source: source,
-        medium: medium,
-        campaign: campaign
-      });
-    });
-  });
-
-  // Track scroll depth
-  var maxScroll = 0;
-  var milestones = [25, 50, 75, 100];
-  var tracked = {};
-  window.addEventListener('scroll', function() {
-    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    if (scrollPct > maxScroll) maxScroll = scrollPct;
-    milestones.forEach(function(m) {
-      if (scrollPct >= m && !tracked[m]) {
-        tracked[m] = true;
-        amplitude.track('scroll_depth', { depth: m, source: source });
-      }
-    });
-  });
-})();
-</script>
-
-</body>
-</html>
