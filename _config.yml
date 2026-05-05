@@ -18,6 +18,8 @@ exclude:
 # Keep these files as-is (no Jekyll processing)
 include:
   - googledbde790d1d8b20bb.html
+  - .well-known
+  - .well-known/apple-app-site-association
 
 # Default front matter
 defaults:
