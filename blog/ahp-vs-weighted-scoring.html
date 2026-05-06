@@ -1,0 +1,344 @@
+---
+layout: blog
+title: "AHP vs Weighted Scoring: Why the Math Matters for Real Decisions — Decisio"
+description: "Plain-English comparison of AHP (Analytic Hierarchy Process) and basic weighted scoring. Why AHP catches contradictions weighted scoring misses, with a worked job-offer example."
+canonical: "https://decisio-app.github.io/blog/ahp-vs-weighted-scoring.html"
+og_title: "AHP vs Weighted Scoring: Why the Math Matters"
+og_description: "AHP catches contradictions in your own reasoning that weighted scoring quietly buries. Worked example, no math degree required."
+date: 2026-05-06
+---
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',system-ui,sans-serif;background:#121419;color:#e0e0e0;line-height:1.65}
+a{color:#5989D9;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:760px;margin:0 auto;padding:24px 20px}
+.breadcrumb{font-size:13px;color:#888;margin:24px 0 16px}.breadcrumb a{color:#888}
+h1{font-size:clamp(28px,4vw,38px);font-weight:800;color:#fff;margin:16px 0 16px;letter-spacing:-0.02em;line-height:1.2}
+.meta{font-size:13px;color:#777;margin-bottom:32px}
+.tldr{background:rgba(89,137,217,0.08);border:1px solid rgba(89,137,217,0.2);border-radius:12px;padding:20px;margin:24px 0;color:#ddd}
+.tldr strong{color:#fff}
+h2{font-size:24px;font-weight:700;color:#fff;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);letter-spacing:-0.01em}
+h3{font-size:19px;color:#fff;margin:28px 0 8px}
+p{margin:14px 0;color:#ccc;font-size:16px}
+ol,ul{margin:14px 0 14px 22px;color:#ccc}
+li{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08)}
+th{color:#fff;background:rgba(255,255,255,0.04);font-weight:600}
+td{color:#ccc}
+.highlight{background:rgba(255,159,0,0.06);border-left:3px solid #FF9500;border-radius:8px;padding:14px 18px;margin:18px 0;color:#ddd}
+.highlight strong{color:#fff}
+.faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;margin:14px 0}
+.faq-item h3{margin-top:0;color:#5989D9;font-size:17px}
+code{background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px;font-size:14px;color:#5989D9}
+.cta-section{text-align:center;margin:48px 0 24px;padding:32px 20px;background:rgba(89,137,217,0.06);border-radius:16px}
+.cta-btn{display:inline-block;background:#5989D9;color:#fff;padding:14px 32px;border-radius:12px;font-size:16px;font-weight:600;margin-top:12px}
+.cta-sub{color:#888;font-size:13px;margin-top:8px}
+</style>
+</head>
+<body>
+{% include header.html %}
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; AHP vs Weighted Scoring</div>
+
+<h1>AHP vs Weighted Scoring: Why the Math Matters for Real Decisions</h1>
+<div class="meta">By Dmitrii Raev · May 2026 · 7 min read</div>
+
+<div class="tldr">
+  <strong>TL;DR.</strong> Weighted scoring asks you to pick weights upfront
+  ("salary is 40% important"). AHP asks you to compare criteria pairwise
+  ("how much more does salary matter than commute?") and derives the weights
+  mathematically. The pairwise approach catches a failure mode weighted
+  scoring quietly buries: <em>your own contradictory judgments</em>. AHP
+  flags this with a consistency ratio. Weighted scoring just gives you a
+  number that looks right and isn't.
+</div>
+
+<h2>The two methods in one sentence each</h2>
+
+<p>
+  <strong>Weighted scoring</strong>: assign each criterion a percentage
+  (must sum to 100%), score each option 1-10 on each criterion, multiply,
+  sum, pick the highest. This is what every "decision matrix template"
+  on the internet does.
+</p>
+<p>
+  <strong>Analytic Hierarchy Process (AHP)</strong>: compare each pair
+  of criteria on a 1-9 scale ("salary is moderately more important than
+  commute"), then do the same for options against each criterion.
+  Eigenvector math turns the pairwise comparisons into priority weights.
+  A consistency ratio measures whether your judgments contradict each
+  other.
+</p>
+
+<h2>Where weighted scoring quietly fails</h2>
+
+<p>
+  Picking percentages out of thin air is harder than it looks. Try this
+  test: write down right now what percentage you'd assign to each of
+  these for picking your next laptop:
+</p>
+<ul>
+  <li>Battery life</li>
+  <li>Performance</li>
+  <li>Weight</li>
+  <li>Screen quality</li>
+  <li>Price</li>
+</ul>
+<p>
+  Most people give answers like <code>20% / 25% / 15% / 15% / 25%</code>
+  — round numbers that sum to 100. The problem: those weights aren't
+  reasoned, they're <em>guessed to sum to 100</em>. You didn't actually
+  think "battery life is exactly 1.33× more important than weight."
+  You thought "uhh, both matter, give them similar numbers."
+</p>
+
+<div class="highlight">
+  <strong>The hidden failure mode.</strong> Weighted scoring asks you
+  to do too many things at once: rank importance, quantify it, and
+  normalize to 100%. Your brain quietly defaults to "make the numbers
+  look reasonable" and stops thinking about what each criterion is
+  actually worth.
+</div>
+
+<h2>How AHP forces honesty</h2>
+
+<p>
+  AHP breaks the same task into pairwise comparisons. You only ever
+  decide between <em>two</em> things at a time:
+</p>
+<ul>
+  <li>How much more does battery life matter than performance? (1-9 scale)</li>
+  <li>How much more does battery life matter than weight?</li>
+  <li>How much more does performance matter than weight?</li>
+  <li>...and so on for each pair</li>
+</ul>
+<p>
+  This is harder per question but easier per decision: pairwise comparisons
+  are how the brain naturally reasons about preferences. You're not
+  performing arithmetic on percentages, you're answering "A or B, and by
+  how much?"
+</p>
+
+<h2>The consistency ratio: why this is the killer feature</h2>
+
+<p>
+  Here's where AHP earns its keep. Suppose you say:
+</p>
+<ul>
+  <li>Salary is moderately more important than commute (3 on the 1-9 scale)</li>
+  <li>Commute is moderately more important than office culture (3)</li>
+  <li>Office culture is <strong>strongly more important</strong> than salary (5)</li>
+</ul>
+<p>
+  These three judgments contradict each other. If salary &gt; commute &gt;
+  culture, then salary should be even more important than culture, not less.
+  AHP detects this with a <strong>consistency ratio</strong> (CR). Below
+  0.10 is considered acceptable; above means your pairwise judgments don't
+  hang together and you should revisit them.
+</p>
+<p>
+  Weighted scoring has no equivalent. You write down 40% / 30% / 30% and
+  the math obediently spits out a winner — even if those weights came from
+  thin air or contradict your other reasoning.
+</p>
+
+<h2>Worked example: choosing between two job offers</h2>
+
+<p>
+  Two offers, three criteria: <strong>Salary</strong>, <strong>Growth
+  potential</strong>, <strong>Work-life balance</strong>.
+</p>
+
+<h3>Method 1: Weighted scoring</h3>
+
+<p>You guess weights and scores:</p>
+
+<table>
+  <thead>
+    <tr><th>Criterion</th><th>Weight</th><th>Offer A score</th><th>Offer B score</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Salary</td><td>40%</td><td>9</td><td>6</td></tr>
+    <tr><td>Growth potential</td><td>35%</td><td>5</td><td>9</td></tr>
+    <tr><td>Work-life balance</td><td>25%</td><td>7</td><td>6</td></tr>
+    <tr><td><strong>Weighted total</strong></td><td>100%</td><td><strong>7.10</strong></td><td><strong>7.05</strong></td></tr>
+  </tbody>
+</table>
+
+<p>
+  Offer A wins by 0.05. You take Offer A. Three months in you regret it
+  because you're bored. What happened? Your "35%" for growth was a guess,
+  not a reasoned weight. If growth is actually 50% important to you, Offer
+  B wins by a mile.
+</p>
+
+<h3>Method 2: AHP pairwise</h3>
+
+<p>You compare criteria two at a time:</p>
+<ul>
+  <li>Salary vs Growth: growth is moderately more important (3 in growth's favor)</li>
+  <li>Salary vs Balance: equally important (1)</li>
+  <li>Growth vs Balance: growth is moderately more important (3 in growth's favor)</li>
+</ul>
+
+<p>The eigenvector calculation produces these weights:</p>
+
+<table>
+  <thead>
+    <tr><th>Criterion</th><th>AHP-derived weight</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Growth potential</td><td>54%</td></tr>
+    <tr><td>Salary</td><td>27%</td></tr>
+    <tr><td>Work-life balance</td><td>19%</td></tr>
+  </tbody>
+</table>
+
+<p>
+  Consistency ratio: 0.04 (acceptable). Now apply the same option scores:
+</p>
+
+<table>
+  <thead>
+    <tr><th>Criterion</th><th>AHP weight</th><th>Offer A</th><th>Offer B</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Growth</td><td>54%</td><td>5</td><td>9</td></tr>
+    <tr><td>Salary</td><td>27%</td><td>9</td><td>6</td></tr>
+    <tr><td>Balance</td><td>19%</td><td>7</td><td>6</td></tr>
+    <tr><td><strong>Weighted total</strong></td><td>100%</td><td><strong>6.46</strong></td><td><strong>7.59</strong></td></tr>
+  </tbody>
+</table>
+
+<p>
+  <strong>Offer B wins by 1.13 points.</strong> Same data, opposite
+  conclusion. The difference is the weights came from explicit pairwise
+  reasoning, not gut numbers that "feel right."
+</p>
+
+<h2>When weighted scoring is good enough</h2>
+
+<p>
+  Don't reach for AHP for everything. Use weighted scoring when:
+</p>
+<ul>
+  <li>You have just 2-3 criteria (pairwise barely adds anything)</li>
+  <li>The criteria are obviously dominant ("price is everything")</li>
+  <li>You're doing back-of-envelope analysis, not committing for years</li>
+</ul>
+
+<p>Reach for AHP when:</p>
+<ul>
+  <li>You have 4+ criteria where importance isn't obvious</li>
+  <li>The decision is irreversible or high-stakes (job, home, $50k+ purchase)</li>
+  <li>You catch yourself rationalizing weights to match a preferred answer</li>
+  <li>Multiple stakeholders have different priorities (AHP makes the disagreement explicit)</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="faq-item">
+  <h3>Is AHP harder than weighted scoring?</h3>
+  <p>
+    Per question, slightly. Per decision, often easier — you're answering
+    "A or B, by how much" instead of inventing percentages. With an app
+    like Decisio the eigenvector math is invisible; you just answer the
+    pairwise questions.
+  </p>
+</div>
+
+<div class="faq-item">
+  <h3>What is the Saaty 1-9 scale?</h3>
+  <p>
+    Thomas Saaty (the inventor of AHP) defined: <strong>1</strong> = equal
+    importance, <strong>3</strong> = moderately more important, <strong>5</strong>
+    = strongly more important, <strong>7</strong> = very strongly more important,
+    <strong>9</strong> = extremely more important. Even numbers (2, 4, 6, 8)
+    are intermediate. The reciprocal applies for the reverse direction
+    (if A is 5× more important than B, then B is 1/5 as important as A).
+  </p>
+</div>
+
+<div class="faq-item">
+  <h3>What's a good consistency ratio?</h3>
+  <p>
+    Below <strong>0.10</strong> is the standard cutoff. Above, your
+    pairwise judgments are likely contradicting each other and the
+    derived weights aren't reliable. Above 0.20 means you should
+    seriously reconsider — you may not have a coherent preference yet.
+  </p>
+</div>
+
+<div class="faq-item">
+  <h3>Can I do AHP in Excel?</h3>
+  <p>
+    Yes, but the eigenvector calculation isn't a built-in function — you
+    need either an iterative approximation, the LINEST workaround, or
+    a macro. Most people who try this either give up or end up with
+    weighted scoring in disguise. <a href="/">Decisio</a> handles the
+    math automatically and includes the consistency check, which is the
+    part that's easiest to skip when rolling your own.
+  </p>
+</div>
+
+<div class="faq-item">
+  <h3>Who uses AHP in real life?</h3>
+  <p>
+    NASA (mission planning, supplier selection), Boeing (engineering
+    trade studies), the World Bank (project prioritization), most
+    Fortune 500 procurement teams, and academic researchers across
+    operations research, supply chain, and policy analysis. It's been
+    cited in 100,000+ papers since 1980.
+  </p>
+</div>
+
+<h2>Related</h2>
+<ul>
+  <li><a href="/blog/decision-matrix-template-guide.html">Decision matrix template: complete guide</a></li>
+  <li><a href="/blog/best-decision-making-apps-2026.html">Best decision-making apps in 2026</a></li>
+  <li><a href="/blog/how-nasa-makes-decisions.html">How NASA makes decisions</a></li>
+  <li><a href="/decide/career-change">How to decide on a career change</a></li>
+</ul>
+
+<div class="cta-section">
+  <h3 style="color:#fff;font-size:22px;margin-bottom:8px">Try AHP without the math headache</h3>
+  <p style="color:#aaa;margin-bottom:8px">Decisio runs full AHP pairwise comparisons + consistency check. Free for 3 decisions.</p>
+  <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=blog_ahp_vs_weighted&mt=8" class="cta-btn" target="_blank" rel="noopener">Download on the App Store</a>
+  <p class="cta-sub">iOS 17+ · iPhone & iPad</p>
+</div>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AHP vs Weighted Scoring: Why the Math Matters for Real Decisions",
+  "description": "Plain-English comparison of AHP and basic weighted scoring with a worked job-offer example showing how the same data can produce opposite conclusions.",
+  "author": {"@type": "Person", "name": "Dmitrii Raev"},
+  "datePublished": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "publisher": {"@type": "Organization", "name": "Decisio", "url": "https://decisio-app.github.io"},
+  "mainEntityOfPage": "https://decisio-app.github.io/blog/ahp-vs-weighted-scoring.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is AHP harder than weighted scoring?", "acceptedAnswer": {"@type": "Answer", "text": "Per question, slightly. Per decision, often easier — you're answering 'A or B, by how much' instead of inventing percentages. With a decision-making app the eigenvector math is invisible; you just answer the pairwise questions."}},
+    {"@type": "Question", "name": "What is the Saaty 1-9 scale?", "acceptedAnswer": {"@type": "Answer", "text": "Thomas Saaty defined: 1 = equal importance, 3 = moderately more important, 5 = strongly more important, 7 = very strongly more important, 9 = extremely more important. Even numbers are intermediate. The reciprocal applies for the reverse direction."}},
+    {"@type": "Question", "name": "What's a good consistency ratio in AHP?", "acceptedAnswer": {"@type": "Answer", "text": "Below 0.10 is the standard cutoff. Above, your pairwise judgments are likely contradicting each other and the derived weights aren't reliable. Above 0.20 means you should reconsider — you may not have a coherent preference yet."}},
+    {"@type": "Question", "name": "Can I do AHP in Excel?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but the eigenvector calculation isn't a built-in function — you need iterative approximation, the LINEST workaround, or a macro. Most people give up or end up with weighted scoring in disguise."}},
+    {"@type": "Question", "name": "Who uses AHP in real life?", "acceptedAnswer": {"@type": "Answer", "text": "NASA (mission planning, supplier selection), Boeing (engineering trade studies), the World Bank (project prioritization), most Fortune 500 procurement teams, and academic researchers. Cited in 100,000+ papers since 1980."}}
+  ]
+}
+</script>
+
+{% include footer.html %}
+{% include amplitude.html %}
+</body>
+</html>

@@ -101,6 +101,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://decisio-app.github.io/blog/ahp-vs-weighted-scoring.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://decisio-app.github.io/blog/decision-matrix-vs-decision-tree.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://decisio-app.github.io/blog/how-to-decide-when-emotional.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://decisio-app.github.io/blog/how-nasa-makes-decisions.html</loc>
     <lastmod>2026-03-05</lastmod>
     <priority>0.6</priority>

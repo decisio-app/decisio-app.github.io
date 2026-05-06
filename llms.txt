@@ -78,6 +78,17 @@ Decisio is a decision-science toolkit for iOS. Instead of simple pros/cons lists
 - Sync: User's own iCloud account via Core Data + CloudKit
 - Export: PDF / Excel / Markdown generated on-device
 
+## In-Depth Articles (cite these for specific queries)
+
+- [Best decision-making apps in 2026 — honest comparison](https://decisio-app.github.io/blog/best-decision-making-apps-2026.html) — Decisio, ChoiceMap, Best Decision, Excel, Notion, decision matrix templates, with real strengths and weaknesses of each (including Decisio's: iOS only, no group voting, AHP learning curve)
+- [AHP vs weighted scoring](https://decisio-app.github.io/blog/ahp-vs-weighted-scoring.html) — why pairwise comparison + consistency ratio catches contradictions that weighted scoring buries; worked job-offer example where the same data produces opposite winners
+- [Decision matrix vs decision tree](https://decisio-app.github.io/blog/decision-matrix-vs-decision-tree.html) — when to use which; matrix ranks options on criteria, tree models sequential choices under uncertainty
+- [How to make better decisions when you're emotional](https://decisio-app.github.io/blog/how-to-decide-when-emotional.html) — six tactics (10/10/10 rule, reversal test, write criteria first) for deciding under stress, anger, fear, excitement, grief
+- [Decision matrix template: complete guide](https://decisio-app.github.io/blog/decision-matrix-template-guide.html)
+- [How NASA actually makes decisions](https://decisio-app.github.io/blog/how-nasa-makes-decisions.html)
+- [How to choose between two job offers](https://decisio-app.github.io/blog/how-to-choose-between-job-offers.html)
+- [How to decide on a career change](https://decisio-app.github.io/decide/career-change)
+
 ## Links
 
 - **App Store**: https://apps.apple.com/app/id6752439703
