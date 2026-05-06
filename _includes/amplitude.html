@@ -12,13 +12,49 @@
   var medium = params.get('utm_medium') || 'organic';
   var campaign = params.get('utm_campaign') || '';
   
-  amplitude.track('page_viewed', {
-    page: window.location.pathname,
+  var path = window.location.pathname;
+  var baseProps = {
+    page: path,
     source: source,
     medium: medium,
     campaign: campaign,
     referrer: document.referrer || 'none'
-  });
+  };
+
+  amplitude.track('page_viewed', baseProps);
+
+  // Also dispatch path-specific event names so legacy dashboards (built on
+  // landing_page_viewed / compare_page_viewed / decide_page_viewed /
+  // decide_hub_viewed / blog_article_viewed) keep working.
+  var specific = (function() {
+    if (path === '/' || path === '/index.html') return 'landing_page_viewed';
+    if (path === '/compare/' || path === '/compare/index.html') return 'compare_page_viewed';
+    if (path.indexOf('/compare/') === 0) {
+      return 'compare_page_viewed';
+    }
+    if (path === '/decide/' || path === '/decide/index.html') return 'decide_hub_viewed';
+    if (path.indexOf('/decide/') === 0) return 'decide_page_viewed';
+    if (path === '/blog/' || path === '/blog/index.html') return null;
+    if (path.indexOf('/blog/') === 0) return 'blog_article_viewed';
+    return null;
+  })();
+
+  if (specific) {
+    var specificProps = Object.assign({}, baseProps);
+    if (specific === 'compare_page_viewed') {
+      var m = path.match(/^\/compare\/([^/.]+)/);
+      specificProps.competitor = m ? m[1] : 'hub';
+    }
+    if (specific === 'decide_page_viewed') {
+      var dm = path.match(/^\/decide\/([^/.]+)/);
+      specificProps.decision_type = dm ? dm[1] : 'unknown';
+    }
+    if (specific === 'blog_article_viewed') {
+      var bm = path.match(/^\/blog\/([^/.]+)/);
+      specificProps.article_slug = bm ? bm[1] : 'unknown';
+    }
+    amplitude.track(specific, specificProps);
+  }
 
   document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(link) {
     link.addEventListener('click', function(e) {
