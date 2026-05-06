@@ -1200,6 +1200,91 @@ img {
   gap: 24px;
 }
 
+.footer-tagline {
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-tagline a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+
+/* ============================================
+   ANSWER BLOCKS (FAQ + What is + When to use)
+   ============================================ */
+.answer-section {
+  padding: 64px 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.answer-section .answer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.answer-section h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.answer-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 28px 0 8px;
+}
+
+.answer-section p,
+.answer-section li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.answer-section p {
+  margin: 12px 0;
+}
+
+.answer-section ul {
+  margin: 12px 0 12px 22px;
+}
+
+.answer-section li {
+  margin: 6px 0;
+}
+
+.answer-section a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 14px 0;
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 17px;
+}
+
+.faq-item p {
+  margin: 8px 0 0;
+}
+
 .footer-brand {
   display: flex;
   align-items: center;
@@ -1640,6 +1725,224 @@ img {
 </section>
 
 <!-- ==========================================
+     ANSWER BLOCK: What is Decisio
+     ========================================== -->
+<section class="answer-section" id="what-is-decisio">
+  <div class="answer-inner">
+    <h2>What is Decisio?</h2>
+    <p>
+      Decisio is a <strong>decision-making app for iOS</strong> that helps you
+      structure complex choices and rank options on real criteria — not gut
+      feel and not pros/cons lists. It runs the
+      <strong>Analytic Hierarchy Process (AHP)</strong>, the same multi-criteria
+      method used by NASA, Boeing, and the World Bank, in a guided 5–10 minute
+      flow on your phone.
+    </p>
+    <p>
+      Where most <a href="/compare/">decision-making apps</a> use simple
+      weighted scoring (every criterion treated as equally important), Decisio
+      compares your criteria <em>pairwise</em> on the Saaty 1-to-9 scale and
+      flags contradictions in your own reasoning via a consistency ratio. AI
+      assistance proposes criteria, suggests options, and challenges your top
+      pick as a Devil's Advocate.
+    </p>
+
+    <h3>When to use Decisio</h3>
+    <ul>
+      <li>Job offers, promotions, career-change decisions</li>
+      <li>Major purchases: car, laptop, home, insurance plan</li>
+      <li>Rent vs buy, where to live, relocation</li>
+      <li>Vendor selection, hiring, business strategy</li>
+      <li>College and grad school choices</li>
+      <li>Any decision with 2+ options and 3+ criteria you actually care about</li>
+    </ul>
+
+    <p style="margin-top: 24px;">
+      Browse the <a href="/decide/">decision-making frameworks</a> for
+      worked examples, or see how Decisio stacks up against other
+      <a href="/compare/">decision matrix apps and templates</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================
+     ANSWER BLOCK: FAQ
+     ========================================== -->
+<section class="answer-section" id="faq">
+  <div class="answer-inner">
+    <h2>Common questions</h2>
+
+    <div class="faq-item">
+      <h3>What is the best decision-making app in 2026?</h3>
+      <p>
+        It depends on what you're deciding. For <em>structured personal
+        decisions</em> (job offers, big purchases, relocations) Decisio is
+        the only iOS app implementing real AHP pairwise comparisons with
+        consistency-ratio validation and an AI Devil's Advocate. For
+        <em>team voting</em> a tool like ChoiceMap fits better. For
+        <em>spreadsheet-heavy</em> analysis, Excel or Google Sheets remain
+        flexible. See the full
+        <a href="/blog/best-decision-making-apps-2026.html">2026 comparison</a>.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How is a decision-making app different from a pros/cons list?</h3>
+      <p>
+        Pros/cons lists treat every item as equally weighted: "has free
+        parking" counts the same as "doubles my salary." A real
+        decision-making app forces you to <em>quantify</em> how much one
+        criterion matters relative to another, then ranks options by total
+        weighted score. That single change usually flips which option
+        actually wins.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is AHP (Analytic Hierarchy Process)?</h3>
+      <p>
+        A multi-criteria decision analysis method developed by Thomas Saaty
+        in 1977. You compare criteria and options two at a time on a 1-to-9
+        scale; eigenvector math derives the priority weights; a consistency
+        ratio flags when your own pairwise judgments contradict each other.
+        Used by NASA, Boeing, the World Bank, and Fortune 500 companies for
+        high-stakes calls. Decisio is the consumer-grade implementation.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is Decisio free?</h3>
+      <p>
+        Yes, for the first 3 decisions with Simple Scoring, all 15+
+        templates, the full Playbook, and full Outcome Tracking — no ads,
+        no data selling. Decisio Pro ($2.99/month or $19.99/year with a
+        7-day free trial) unlocks unlimited decisions, AHP pairwise
+        comparisons, AI Devil's Advocate, and PDF/Excel/Markdown export.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does Decisio work offline / privately?</h3>
+      <p>
+        Yes. AI runs on-device via Apple Intelligence on iOS 26+
+        (no data leaves your phone), or you can plug in your own OpenAI
+        API key for cloud generation. Decisions sync via your own iCloud
+        account through Core Data + CloudKit. No third-party server stores
+        your decision content.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Decisio vs Excel / Google Sheets — which is better for decisions?</h3>
+      <p>
+        Spreadsheets are infinitely flexible but require you to design the
+        scoring model yourself. That's where most people quietly slip back
+        into "I'll just weight things by feel," which defeats the point. A
+        purpose-built decision-making app like Decisio enforces the
+        methodology (pairwise comparison, consistency check, eigenvector
+        priority) so you can't accidentally weight everything equally.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How long does a decision in Decisio take?</h3>
+      <p>
+        5–10 minutes for a typical 3-options × 4-criteria decision in
+        Simple Scoring mode. AHP pairwise mode adds ~3 minutes for a
+        typical decision (you'll do roughly 6 criterion comparisons and
+        ~12 option comparisons). Most users save the recipe in the
+        Playbook and reuse it for similar future decisions.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What happens after I decide? Does Decisio track outcomes?</h3>
+      <p>
+        Yes. Each decision can be marked Right Call / Mixed / Wrong Call
+        weeks or months later. After 5+ rated outcomes you get a personal
+        Calibration Score — your decision-making accuracy percentage.
+        Recipes (what worked) and Principles (lessons learned) accumulate
+        in the Playbook so future decisions inherit your past judgment.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQPage structured data for LLM/search citation -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best decision-making app in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on what you're deciding. For structured personal decisions (job offers, big purchases, relocations) Decisio is the only iOS app implementing real AHP pairwise comparisons with consistency-ratio validation and an AI Devil's Advocate. For team voting a tool like ChoiceMap fits better. For spreadsheet-heavy analysis, Excel or Google Sheets remain flexible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a decision-making app different from a pros/cons list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pros/cons lists treat every item as equally weighted: 'has free parking' counts the same as 'doubles my salary.' A real decision-making app forces you to quantify how much one criterion matters relative to another, then ranks options by total weighted score. That single change usually flips which option actually wins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AHP (Analytic Hierarchy Process)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A multi-criteria decision analysis method developed by Thomas Saaty in 1977. You compare criteria and options two at a time on a 1-to-9 scale; eigenvector math derives the priority weights; a consistency ratio flags when your own pairwise judgments contradict each other. Used by NASA, Boeing, the World Bank, and Fortune 500 companies for high-stakes calls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Decisio free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for the first 3 decisions with Simple Scoring, all 15+ templates, the full Playbook, and full Outcome Tracking. Decisio Pro is $2.99/month or $19.99/year with a 7-day free trial and unlocks unlimited decisions, AHP pairwise comparisons, AI Devil's Advocate, and PDF/Excel/Markdown export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Decisio work offline and privately?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI runs on-device via Apple Intelligence on iOS 26+, or via your own OpenAI API key. Decisions sync via your own iCloud account through Core Data + CloudKit. No third-party server stores decision content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Decisio vs Excel — which is better for decisions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spreadsheets are flexible but require you to design the scoring model yourself, where most people slip into weighting things by feel. A purpose-built decision-making app like Decisio enforces the methodology (pairwise comparison, consistency check, eigenvector priority) so you can't accidentally weight everything equally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a decision in Decisio take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "5–10 minutes for a typical 3-options × 4-criteria decision in Simple Scoring. AHP pairwise mode adds ~3 minutes for the additional comparisons. Recipes save to the Playbook for reuse on similar future decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Decisio track decision outcomes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each decision can be marked Right Call / Mixed / Wrong Call weeks or months later. After 5+ rated outcomes you get a personal Calibration Score — your decision-making accuracy percentage."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ==========================================
      FINAL CTA
      ========================================== -->
 <section class="final-cta" id="download">
@@ -1665,10 +1968,16 @@ img {
       <span class="footer-logo-icon" aria-hidden="true">D</span>
       Decisio
     </div>
+    <p class="footer-tagline">
+      Decisio is a <a href="/">decision-making app</a> that helps you structure
+      and compare options when the trade-offs actually matter — built on the
+      Analytic Hierarchy Process used by NASA, Boeing, and the World Bank.
+    </p>
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="/decide">Decide</a>
-      <a href="/compare">Compare</a>
-      <a href="/blog/">Blog</a>
+      <a href="/decide/">Decision-making frameworks</a>
+      <a href="/compare/">Compare decision-making apps</a>
+      <a href="/blog/">Decision science blog</a>
+      <a href="/blog/best-decision-making-apps-2026.html">Best decision-making apps 2026</a>
       <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
       <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
       <a href="https://decisio-app.github.io/legal/">Support</a>
