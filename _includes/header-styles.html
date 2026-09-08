@@ -103,4 +103,14 @@
 body {
   padding-top: 64px;
 }
+
+/* Keep wide comparison tables from blowing out the layout on small screens */
+@media (max-width: 640px) {
+  .container table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 </style>
