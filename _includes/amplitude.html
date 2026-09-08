@@ -3,8 +3,8 @@
 <script>
 (function() {
   window.amplitude.init('7d01d3bca35475ea42a16f39e10773be', {
-    autocapture: { pageViews: true, sessions: true, elementInteractions: false },
-    defaultTracking: { pageViews: true, sessions: true }
+    autocapture: { pageViews: true, sessions: true, elementInteractions: false, attribution: true },
+    defaultTracking: { pageViews: true, sessions: true, attribution: true }
   });
 
   var params = new URLSearchParams(window.location.search);
