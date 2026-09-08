@@ -39,12 +39,13 @@
 {{ content }}
 </div>
 <aside class="decide-rail">
-<details class="calc-wrap">
+<details class="calc-wrap" open>
 <summary>Rank your {{ page.calc_noun | default: "options" }}</summary>
 {% include decision-calculator.html %}
 </details>
 </aside>
 </div>
+<script>(function(){var d=document.querySelector('.calc-wrap');if(d&&window.matchMedia&&matchMedia('(max-width:1079px)').matches)d.removeAttribute('open');})();</script>
 {% else %}
 {{ content }}
 {% endif %}
