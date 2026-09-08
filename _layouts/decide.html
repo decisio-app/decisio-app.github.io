@@ -28,11 +28,26 @@
 {% include favicon.html %}
 {% include header-styles.html %}
 {% include footer-styles.html %}
+{% if page.calc_criteria %}{% include calc-rail-styles.html %}{% endif %}
 </head>
 <body>
 {% include header.html %}
 
+{% if page.calc_criteria %}
+<div class="decide-shell">
+<div class="decide-main">
 {{ content }}
+</div>
+<aside class="decide-rail">
+<details class="calc-wrap">
+<summary>Rank your {{ page.calc_noun | default: "options" }}</summary>
+{% include decision-calculator.html %}
+</details>
+</aside>
+</div>
+{% else %}
+{{ content }}
+{% endif %}
 
 {% include footer.html %}
 

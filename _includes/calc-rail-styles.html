@@ -1,0 +1,21 @@
+<style>
+/* Article + always-visible calculator layout (decide pages) */
+.decide-shell{display:flex;flex-direction:column}
+.decide-rail{order:-1}
+.calc-wrap{margin:0}
+.calc-wrap > summary{list-style:none;cursor:pointer;background:#5989D9;color:#fff;font-weight:700;font-size:15px;padding:13px 20px;display:flex;justify-content:space-between;align-items:center}
+.calc-wrap > summary::-webkit-details-marker{display:none}
+.calc-wrap > summary::after{content:"\25BE";font-size:12px;opacity:.8}
+.calc-wrap[open] > summary::after{content:"\25B4"}
+.calc-wrap .calc{margin:0;border-radius:0 0 16px 16px}
+.calc-wrap .calc > h2:first-child,.calc-wrap .calc > p:first-of-type{display:none}
+
+@media (min-width:1080px){
+  .decide-shell{display:grid;grid-template-columns:minmax(0,1fr) 358px;gap:44px;align-items:start;max-width:1200px;margin:0 auto;padding:0 24px}
+  .decide-rail{order:0;position:sticky;top:88px;max-height:calc(100vh - 112px);overflow-y:auto;overscroll-behavior:contain}
+  .decide-main .container{max-width:none;margin:0;padding:24px 0}
+  .calc-wrap > summary{display:none}
+  .calc-wrap .calc{display:block !important;border-radius:16px}
+  .calc-wrap .calc > h2:first-child,.calc-wrap .calc > p:first-of-type{display:block}
+}
+</style>
