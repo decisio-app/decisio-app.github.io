@@ -2,10 +2,11 @@
 layout: landing
 title: "Decisio: AI Decision Maker - Stop Overthinking, Start Deciding"
 description: "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results. Free for iOS."
-canonical: "https://decisio-app.github.io"
+canonical: "https://trydecisio.app"
 og_title: "Decisio: AI Decision Maker"
 og_description: "Stop overthinking. Make decisions backed by the same math NASA uses. Free for iOS."
 ---
+<script>document.documentElement.className += ' js';</script>
 <style>
 
 /* ============================================
@@ -81,13 +82,13 @@ img {
 /* ============================================
    SCROLL ANIMATIONS
    ============================================ */
-.fade-in {
+.js .fade-in {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.fade-in.visible {
+.js .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -274,10 +275,20 @@ img {
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
+  color: #ffffff;
   background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero h1 { -webkit-text-fill-color: #ffffff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 .hero-description {
@@ -339,11 +350,35 @@ img {
   letter-spacing: -0.01em;
 }
 
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.hero-secondary-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
 .hero-trust {
   display: flex;
   align-items: center;
   gap: 16px;
   font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.hero-platform {
+  margin-top: 14px;
+  font-size: 13px;
   color: var(--text-tertiary);
 }
 
@@ -1352,7 +1387,7 @@ img {
      HEADER
      ========================================== -->
 <header class="site-header" role="banner">
-  <a href="#" class="header-logo" aria-label="Decisio home">
+  <a href="/" class="header-logo" aria-label="Decisio home">
     <span class="header-logo-icon" aria-hidden="true">D</span>
     Decisio
   </a>
@@ -1392,6 +1427,7 @@ img {
             <span class="app-store-btn-main">App Store</span>
           </span>
         </a>
+        <a href="/decide/job-offer" class="hero-secondary-btn">Try the free calculator &rarr;</a>
       </div>
       <div class="hero-trust">
         <span>Free to start</span>
@@ -1400,6 +1436,7 @@ img {
         <span class="hero-trust-divider" aria-hidden="true"></span>
         <span>No account required</span>
       </div>
+      <p class="hero-platform">iPhone &amp; iPad · iOS 17+ &nbsp;|&nbsp; On Android or desktop? <a href="/decide/job-offer">Use the web calculator</a>.</p>
     </div>
 
     <div class="hero-visual fade-in fade-in-delay-2">
@@ -1948,7 +1985,7 @@ img {
 <section class="final-cta" id="download">
   <div class="final-cta-inner fade-in">
     <h2>Make your next decision<br>the <span class="gradient-text">right</span> one</h2>
-    <p class="final-cta-sub">"One good decision pays for a lifetime of Decisio."</p>
+    <p class="final-cta-sub">Free for your first 3 decisions. No account, no card. About 10 minutes per decision.</p>
     <a href="https://apps.apple.com/app/id6752439703?pt=126584033&ct=landing_hero&mt=8" class="app-store-btn" target="_blank" rel="noopener" aria-label="Download Decisio on the App Store">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <span class="app-store-btn-text">
@@ -1978,9 +2015,9 @@ img {
       <a href="/compare/">Compare decision-making apps</a>
       <a href="/blog/">Decision science blog</a>
       <a href="/blog/best-decision-making-apps-2026.html">Best decision-making apps 2026</a>
-      <a href="https://decisio-app.github.io/legal/privacy.html">Privacy Policy</a>
-      <a href="https://decisio-app.github.io/legal/terms.html">Terms of Use</a>
-      <a href="https://decisio-app.github.io/legal/">Support</a>
+      <a href="https://trydecisio.app/legal/privacy.html">Privacy Policy</a>
+      <a href="https://trydecisio.app/legal/terms.html">Terms of Use</a>
+      <a href="https://trydecisio.app/legal/">Support</a>
       <a href="mailto:dmitrii.raev@gmail.com">Contact</a>
     </nav>
     <div class="footer-copyright">&copy; 2026 Dmitrii Raev</div>

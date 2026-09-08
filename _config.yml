@@ -1,7 +1,7 @@
 # Decisio Landing Page - Jekyll Configuration
 title: "Decisio: AI Decision Maker"
 description: "Decisio uses AI and the same decision science method trusted by NASA to turn complex choices into clear, ranked results."
-url: "https://decisio-app.github.io"
+url: "https://trydecisio.app"
 baseurl: ""
 
 # Build settings

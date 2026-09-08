@@ -17,4 +17,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://decisio-app.github.io/sitemap.xml
+Sitemap: https://trydecisio.app/sitemap.xml

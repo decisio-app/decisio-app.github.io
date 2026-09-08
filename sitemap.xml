@@ -1,142 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://decisio-app.github.io/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/compare</loc>
+    <loc>https://trydecisio.app/compare</loc>
     <lastmod>2026-04-17</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide</loc>
-    <lastmod>2026-04-18</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/compare/best-decision</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/compare/choicemap</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/compare/decision-matrix</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/compare/arbitrium</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/compare/pros-and-cons-smart-choices</loc>
-    <lastmod>2026-04-17</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://decisio-app.github.io/decide/job-offer</loc>
+    <loc>https://trydecisio.app/decide</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/laptop</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/compare/best-decision</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/car</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/compare/choicemap</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/college</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/compare/decision-matrix</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/where-to-live</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/compare/arbitrium</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/rent-vs-buy</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/compare/pros-and-cons-smart-choices</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/apartment</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/decide/job-offer</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/decide/laptop</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/career-change</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/decide/car</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/health-insurance</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/decide/college</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/online-course</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/decide/where-to-live</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/decide/vendor</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://trydecisio.app/decide/rent-vs-buy</loc>
+    <lastmod>2026-09-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/</loc>
+    <loc>https://trydecisio.app/decide/apartment</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/decide/career-change</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/decide/health-insurance</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/decide/online-course</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/decide/vendor</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trydecisio.app/blog/</loc>
     <lastmod>2026-05-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/best-decision-making-apps-2026.html</loc>
+    <loc>https://trydecisio.app/blog/best-decision-making-apps-2026.html</loc>
     <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/ahp-vs-weighted-scoring.html</loc>
+    <loc>https://trydecisio.app/blog/ahp-vs-weighted-scoring.html</loc>
     <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/decision-matrix-vs-decision-tree.html</loc>
+    <loc>https://trydecisio.app/blog/decision-matrix-vs-decision-tree.html</loc>
     <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/how-to-decide-when-emotional.html</loc>
+    <loc>https://trydecisio.app/blog/how-to-decide-when-emotional.html</loc>
     <lastmod>2026-05-06</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/how-nasa-makes-decisions.html</loc>
+    <loc>https://trydecisio.app/blog/how-nasa-makes-decisions.html</loc>
     <lastmod>2026-03-05</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/decision-matrix-template-guide.html</loc>
+    <loc>https://trydecisio.app/blog/decision-matrix-template-guide.html</loc>
     <lastmod>2026-03-12</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/blog/how-to-choose-between-job-offers.html</loc>
+    <loc>https://trydecisio.app/blog/how-to-choose-between-job-offers.html</loc>
     <lastmod>2026-03-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://decisio-app.github.io/llms.txt</loc>
+    <loc>https://trydecisio.app/llms.txt</loc>
     <lastmod>2026-04-17</lastmod>
     <priority>0.5</priority>
   </url>
