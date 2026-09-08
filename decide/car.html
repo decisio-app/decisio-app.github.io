@@ -5,6 +5,11 @@ description: "A car is the second-largest purchase most people make. Learn which
 canonical: "https://decisio-app.github.io/decide/car"
 og_title: "How to Choose a Car: A Decision Framework"
 og_description: "Criteria that actually matter, trade-offs dealerships hide, and the step-by-step framework to decide without regret."
+calc_type: "car"
+calc_noun: "cars"
+calc_ct: "decide_car_calc"
+calc_options: "Car A, Car B, Car C"
+calc_criteria: "5-year cost of ownership:4, Reliability:4, Safety:3, Fits my needs:3, Driving experience:2"
 ---
 <style>
 
@@ -135,6 +140,8 @@ footer{text-align:center;padding:32px 20px;border-top:1px solid rgba(255,255,255
   <h3>Can Decisio help me compare cars?</h3>
   <p>Yes. Decisio's Purchase template pre-loads car-decision criteria (TCO, fit, reliability, safety, efficiency, features, resale). You adjust weights for your situation, add 3-4 cars you're considering, run pairwise comparisons, and get a ranked result with a Devil's Advocate challenge. The process takes 15-20 minutes and replaces hours of fuzzy Excel spreadsheets.</p>
 </div>
+
+{% include decision-calculator.html %}
 
 <div class="cta-section">
   <h2 style="border:none;padding:0;margin:0 0 8px">Run this decision in Decisio</h2>

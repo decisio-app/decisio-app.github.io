@@ -5,6 +5,11 @@ description: "Picking a laptop is a 3-5 year commitment. Learn which criteria ma
 canonical: "https://decisio-app.github.io/decide/laptop"
 og_title: "How to Choose a Laptop: A Decision Framework That Actually Works"
 og_description: "Criteria that actually matter, common mistakes, step-by-step AHP framework for picking the right laptop."
+calc_type: "laptop"
+calc_noun: "laptops"
+calc_ct: "decide_laptop_calc"
+calc_options: "Laptop A, Laptop B, Laptop C"
+calc_criteria: "Performance for my work:4, Price:4, Battery life:3, Portability:3, Build & repairability:2"
 ---
 <style>
 
@@ -141,6 +146,8 @@ footer a{color:#888}
   <h3>Can I use Decisio to structure this decision?</h3>
   <p>Yes. Decisio has a built-in laptop-purchase template that pre-loads the 7 criteria above. You adjust weights for your situation, add the 3-4 laptops you're considering, run the pairwise comparisons, and get a ranked result with a Devil's Advocate challenge against your top pick. The whole process takes 10-15 minutes and produces a defensible answer.</p>
 </div>
+
+{% include decision-calculator.html %}
 
 <div class="cta-section">
   <h2 style="border:none;padding:0;margin:0 0 8px">Run this decision in Decisio</h2>

@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://decisio-app.github.io/decide/job-offer</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://decisio-app.github.io/decide/laptop</loc>
     <lastmod>2026-04-18</lastmod>
     <priority>0.8</priority>
