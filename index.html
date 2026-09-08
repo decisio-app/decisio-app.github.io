@@ -1514,6 +1514,97 @@ img {
   background-clip: text;
 }
 
+/* ============================================
+   UI/UX POLISH PASS
+   ============================================ */
+
+/* Kill orphans / ragged wraps */
+.hero h1,
+.section-title,
+.final-cta h2 { text-wrap: balance; }
+.hero-description,
+.section-description,
+.feature-description,
+.feature-title,
+.credibility-title { text-wrap: pretty; }
+
+/* Centred section descriptions were left-anchored at max-width */
+.section-centered .section-description { margin-left: auto; margin-right: auto; }
+
+/* Consistent vertical rhythm on the section header */
+.section-title { margin-bottom: 14px; }
+.section-description { margin-bottom: 8px; }
+.features-grid,
+.pricing-cards { margin-top: 48px; }
+
+/* Feature cards: equal height, tighter, single accent (no 6-colour rainbow) */
+.feature-card { display: flex; flex-direction: column; }
+.feature-icon,
+.feature-icon-blue,
+.feature-icon-green,
+.feature-icon-amber,
+.feature-icon-red,
+.feature-icon-purple,
+.feature-icon-teal { background: rgba(89, 137, 217, 0.10); }
+.feature-icon svg { color: var(--accent); }
+.feature-icon { margin-bottom: 14px; }
+.feature-title { font-size: 16px; margin-bottom: 6px; }
+
+/* The differentiator card gets weight */
+.feature-card-lead {
+  border-color: rgba(89, 137, 217, 0.35);
+  background: linear-gradient(135deg, rgba(89,137,217,0.10) 0%, rgba(89,137,217,0.03) 100%);
+}
+.feature-card-lead .feature-icon { background: var(--accent); }
+.feature-card-lead .feature-icon svg { color: #fff; }
+.feature-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* Section footer link */
+.section-more {
+  margin-top: 32px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Compact credibility strip (was 3 full cards) */
+.cred-strip {
+  max-width: 720px;
+  margin: 8px auto 0;
+  font-size: clamp(15px, 1.7vw, 17px);
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+.cred-strip strong { color: var(--text-primary); font-weight: 700; white-space: nowrap; }
+.cred-strip .cred-dot {
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+/* Templates: strip, not a full section */
+.templates-section { padding-top: 56px; padding-bottom: 56px; }
+.templates-section .section-title { font-size: clamp(22px, 3vw, 28px); }
+.templates-grid { margin-top: 28px; }
+
+/* Compare: 3 cards not 6 */
+#compare .features-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { #compare .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { #compare .features-grid { grid-template-columns: 1fr; } }
+
+/* Final CTA: no leftover italic; add a secondary link */
+.final-cta-sub { font-style: normal; }
+.final-cta-secondary { display: block; margin-top: 20px; font-size: 15px; font-weight: 600; }
+
 </style>
 
 <!-- ==========================================
@@ -1718,15 +1809,16 @@ img {
   <div class="section-inner section-centered">
     <span class="section-label fade-in">Features</span>
     <h2 class="section-title fade-in">Everything you need to decide with confidence</h2>
-    <p class="section-description fade-in">Powered by real decision science, enhanced with AI. Not another coin-flip app.</p>
+    <p class="section-description fade-in">Real decision science, enhanced with AI &mdash; not another coin-flip app.</p>
 
     <div class="features-grid">
-      <div class="feature-card fade-in fade-in-delay-1">
-        <div class="feature-icon feature-icon-blue" aria-hidden="true">
+      <div class="feature-card feature-card-lead fade-in fade-in-delay-1">
+        <div class="feature-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 21h16M3 7h18M12 3l7 4M12 3 5 7"/><path d="M6.5 7 3 14a3.5 3.5 0 0 0 7 0L6.5 7ZM17.5 7 14 14a3.5 3.5 0 0 0 7 0L17.5 7Z"/></svg>
         </div>
+        <div class="feature-kicker">The differentiator</div>
         <h3 class="feature-title">AHP Pairwise Comparisons</h3>
-        <p class="feature-description">The same math NASA, Boeing, and the World Bank use to make high-stakes decisions. Published in thousands of peer-reviewed studies.</p>
+        <p class="feature-description">Compare criteria two at a time, and a consistency check flags when your own judgments contradict each other. No other decision app does this.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-2">
@@ -1766,9 +1858,10 @@ img {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8ZM14 3v5h5M9 13h6M9 17h4"/></svg>
         </div>
         <h3 class="feature-title">PDF &amp; CSV Export <span class="feature-badge">Pro</span></h3>
-        <p class="feature-description">Share professional decision reports with stakeholders. Full audit trail with criteria weights, scores, and rationale.</p>
+        <p class="feature-description">Share professional decision reports with stakeholders. Full audit trail of weights, scores, and rationale.</p>
       </div>
     </div>
+    <p class="section-more fade-in"><a href="/decide/job-offer">See a full decision worked through &rarr;</a></p>
   </div>
 </section>
 
@@ -1777,9 +1870,7 @@ img {
      ========================================== -->
 <section class="section templates-section" id="templates">
   <div class="section-inner section-centered">
-    <span class="section-label fade-in">Templates</span>
-    <h2 class="section-title fade-in">10 templates for real decisions</h2>
-    <p class="section-description fade-in">Start in seconds with pre-built criteria and structures. Customize everything or build from scratch.</p>
+    <h2 class="section-title fade-in">15+ templates &mdash; or start from scratch</h2>
 
     <div class="templates-grid fade-in">
       <div class="template-pill">
@@ -1823,6 +1914,7 @@ img {
         Custom
       </div>
     </div>
+    <p class="section-more fade-in"><a href="/decide/">Browse the decision frameworks &rarr;</a></p>
   </div>
 </section>
 
@@ -1831,36 +1923,24 @@ img {
      ========================================== -->
 <section class="section" id="compare">
   <div class="section-inner section-centered">
-    <span class="section-label fade-in">Compare</span>
-    <h2 class="section-title fade-in">Thinking about another decision app?</h2>
-    <p class="section-description fade-in">Honest head-to-head comparisons. When another app is the better pick, we'll tell you.</p>
+    <h2 class="section-title fade-in">Honest comparisons &mdash; even when another app wins</h2>
+    <p class="section-description fade-in">Personal AHP rigor isn't right for every job. Here's when it is, and when it isn't.</p>
 
     <div class="features-grid">
-      <a href="/compare/best-decision" class="feature-card fade-in fade-in-delay-1" style="text-decoration:none;color:inherit;display:block">
-        <h3 class="feature-title">Decisio vs Best Decision</h3>
-        <p class="feature-description">$1.99 one-time vs $2.99/month. When methodology matters more than price &rarr;</p>
-      </a>
-      <a href="/compare/choicemap" class="feature-card fade-in fade-in-delay-2" style="text-decoration:none;color:inherit;display:block">
+      <a href="/compare/choicemap" class="feature-card fade-in fade-in-delay-1" style="text-decoration:none;color:inherit">
         <h3 class="feature-title">Decisio vs ChoiceMap</h3>
-        <p class="feature-description">Personal AHP rigor vs collaborative group voting. Different jobs &rarr;</p>
+        <p class="feature-description">Personal AHP rigor vs collaborative group voting &rarr;</p>
       </a>
-      <a href="/compare/decision-matrix" class="feature-card fade-in fade-in-delay-3" style="text-decoration:none;color:inherit;display:block">
+      <a href="/compare/decision-matrix" class="feature-card fade-in fade-in-delay-2" style="text-decoration:none;color:inherit">
         <h3 class="feature-title">Decisio vs Decision Matrix</h3>
-        <p class="feature-description">AHP pairwise vs classic weighted matrix. Is $29.99 once worth it? &rarr;</p>
+        <p class="feature-description">AHP pairwise vs a classic weighted matrix &rarr;</p>
       </a>
-      <a href="/compare/arbitrium" class="feature-card fade-in fade-in-delay-1" style="text-decoration:none;color:inherit;display:block">
-        <h3 class="feature-title">Decisio vs Arbitrium</h3>
-        <p class="feature-description">What "free" actually costs when the decision is high-stakes &rarr;</p>
-      </a>
-      <a href="/compare/pros-and-cons-smart-choices" class="feature-card fade-in fade-in-delay-2" style="text-decoration:none;color:inherit;display:block">
-        <h3 class="feature-title">Decisio vs Pros &amp; Cons Smart Choices</h3>
-        <p class="feature-description">AI-assisted pros/cons still counts items. AHP weighs them &rarr;</p>
-      </a>
-      <a href="/compare" class="feature-card fade-in fade-in-delay-3" style="text-decoration:none;color:inherit;display:block">
-        <h3 class="feature-title">All Comparisons</h3>
-        <p class="feature-description">Decisio vs pros/cons lists, spreadsheets, and all major decision apps &rarr;</p>
+      <a href="/compare/best-decision" class="feature-card fade-in fade-in-delay-3" style="text-decoration:none;color:inherit">
+        <h3 class="feature-title">Decisio vs Best Decision</h3>
+        <p class="feature-description">$1.99 one-time vs subscription &mdash; when method beats price &rarr;</p>
       </a>
     </div>
+    <p class="section-more fade-in"><a href="/compare/">See all comparisons &rarr;</a></p>
   </div>
 </section>
 
@@ -1918,27 +1998,14 @@ img {
      ========================================== -->
 <section class="section credibility" id="credibility">
   <div class="section-inner section-centered">
-    <span class="section-label fade-in">Built on Science</span>
-    <h2 class="section-title fade-in">The decision framework behind Decisio</h2>
-    <p class="section-description fade-in">AHP (Analytic Hierarchy Process) isn't new. It's been trusted for decades by the world's most rigorous organizations.</p>
-
-    <div class="credibility-grid">
-      <div class="credibility-card fade-in fade-in-delay-1">
-        <div class="credibility-icon" aria-hidden="true">&#x1F680;</div>
-        <h3 class="credibility-title">NASA & Boeing</h3>
-        <p class="credibility-description">Used for mission-critical decisions where failure is not an option. From spacecraft design to supplier selection.</p>
-      </div>
-      <div class="credibility-card fade-in fade-in-delay-2">
-        <div class="credibility-icon" aria-hidden="true">&#x1F3E6;</div>
-        <h3 class="credibility-title">World Bank & Fortune 500</h3>
-        <p class="credibility-description">Applied to resource allocation, strategic planning, and multi-billion dollar investment decisions worldwide.</p>
-      </div>
-      <div class="credibility-card fade-in fade-in-delay-3">
-        <div class="credibility-icon" aria-hidden="true">&#x1F4DA;</div>
-        <h3 class="credibility-title">Peer-Reviewed Research</h3>
-        <p class="credibility-description">Published in thousands of academic papers since 1980. One of the most studied and validated decision frameworks in existence.</p>
-      </div>
-    </div>
+    <h2 class="section-title fade-in">The method isn't new. Just newly on your phone.</h2>
+    <p class="cred-strip fade-in">
+      The <strong>Analytic Hierarchy Process</strong> &mdash; multi-criteria decision analysis used by
+      <strong>NASA</strong> <span class="cred-dot" aria-hidden="true"></span>
+      <strong>Boeing</strong> <span class="cred-dot" aria-hidden="true"></span>
+      <strong>the World Bank</strong> <span class="cred-dot" aria-hidden="true"></span>
+      <strong>Fortune 500 procurement</strong>, and in <strong>100,000+</strong> peer-reviewed papers since 1980.
+    </p>
   </div>
 </section>
 
@@ -2174,6 +2241,7 @@ img {
         <span class="app-store-btn-main">App Store</span>
       </span>
     </a>
+    <a href="/decide/job-offer" class="final-cta-secondary">Not on iPhone? Try the free web calculator &rarr;</a>
   </div>
 </section>
 
