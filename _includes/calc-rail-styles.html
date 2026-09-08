@@ -7,17 +7,16 @@
 .calc-wrap > summary::-webkit-details-marker{display:none}
 .calc-wrap > summary::after{content:"\25BE";font-size:12px;opacity:.85}
 .calc-wrap[open] > summary::after{content:"\25B4"}
-.calc-wrap .calc{margin:0;border:1px solid rgba(89,137,217,0.5);border-top:3px solid #5989D9;box-shadow:0 10px 40px rgba(0,0,0,0.35);border-radius:0 0 16px 16px;max-height:calc(100vh - 128px)}
-.calc-wrap .calc-title,.calc-wrap .calc-sub{display:none}
+.calc-wrap .calc{margin:0;border:1px solid rgba(89,137,217,0.5);border-top:3px solid #5989D9;box-shadow:0 12px 44px rgba(0,0,0,0.4);border-radius:0 0 16px 16px;max-height:calc(100vh - 140px)}
+.calc-wrap .calc-title{display:none}
 
 @media (min-width:1080px){
-  .decide-shell{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:44px;align-items:start;max-width:1200px;margin:0 auto;padding:0 24px}
+  .decide-shell{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:44px;align-items:start;max-width:1216px;margin:0 auto;padding:0 24px}
   .decide-rail{order:0}
   .decide-main .container{max-width:none;margin:0;padding:24px 0}
-  .calc-wrap{top:88px;margin:24px 0}
+  .calc-wrap{top:84px;margin:20px 0}
   .calc-wrap > summary{display:none}
-  .calc-wrap .calc{border-radius:14px;max-height:calc(100vh - 128px)}
+  .calc-wrap .calc{border-radius:14px;max-height:calc(100vh - 108px)}
   .calc-wrap .calc-title{display:flex}
-  .calc-wrap .calc-sub{display:block}
 }
 </style>
