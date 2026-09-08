@@ -7,7 +7,7 @@
 .calc-wrap > summary::-webkit-details-marker{display:none}
 .calc-wrap > summary::after{content:"\25BE";font-size:12px;opacity:.85}
 .calc-wrap[open] > summary::after{content:"\25B4"}
-.calc-wrap .calc{margin:0;border-radius:0 0 16px 16px;max-height:72vh;overflow-y:auto}
+.calc-wrap .calc{margin:0;border:1px solid rgba(89,137,217,0.5);border-top:3px solid #5989D9;box-shadow:0 10px 40px rgba(0,0,0,0.35);border-radius:0 0 16px 16px;max-height:72vh;overflow-y:auto}
 .calc-wrap .calc > h2:first-child,.calc-wrap .calc > p:first-of-type{display:none}
 
 @media (min-width:1080px){
@@ -16,7 +16,7 @@
   .decide-main .container{max-width:none;margin:0;padding:24px 0}
   .calc-wrap{top:88px;margin:24px 0}
   .calc-wrap > summary{display:none}
-  .calc-wrap .calc{border-radius:16px;max-height:calc(100vh - 116px)}
+  .calc-wrap .calc{border-radius:14px;max-height:calc(100vh - 120px)}
   .calc-wrap .calc > h2:first-child,.calc-wrap .calc > p:first-of-type{display:block}
 }
 </style>

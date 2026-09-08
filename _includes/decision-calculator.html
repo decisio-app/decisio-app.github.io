@@ -1,21 +1,24 @@
 {%- comment -%}
 Interactive weighted-scoring calculator. Config via page front matter:
-  calc_options:  "Offer A, Offer B, Current job"          (comma-separated, no commas in names)
-  calc_criteria: "Total compensation:4, Career growth:4"  (name:weight 1-5, comma-separated)
-  calc_ct:       "decide_job_offer_calc"                  (App Store ct= attribution tag)
-  calc_type:     "job-offer"                              (decision_type sent to Amplitude)
-  calc_noun:     "offers"                                 (used in the heading)
-Override per-include with the same keys, e.g. {% include decision-calculator.html calc_noun="cities" %}
+  calc_options:  "Startup offer, Big-company offer, Current job"   (comma-separated, no commas in names)
+  calc_criteria: "Total compensation:4, Career growth:4"           (name:weight 1-5, comma-separated)
+  calc_scores:   "3 5 4 3 2 / 5 3 3 4 5 / 3 3 4 5 4"              (per option: scores in criteria order, groups split by /)
+  calc_ct:       "decide_job_offer_calc"                          (App Store ct= attribution tag)
+  calc_type:     "job-offer"                                      (decision_type sent to Amplitude)
+  calc_noun:     "offers"                                         (used in the heading)
 {%- endcomment -%}
 {%- assign _opts   = include.calc_options   | default: page.calc_options   | default: "Option A, Option B, Option C" -%}
 {%- assign _crits  = include.calc_criteria  | default: page.calc_criteria  | default: "Cost:4, Quality:4, Speed:3, Risk:3, Effort:2" -%}
+{%- assign _scores = include.calc_scores    | default: page.calc_scores    | default: "" -%}
 {%- assign _ct     = include.calc_ct        | default: page.calc_ct        | default: "decide_calc" -%}
 {%- assign _dtype  = include.calc_type      | default: page.calc_type      | default: page.slug | default: "generic" -%}
 {%- assign _noun   = include.calc_noun      | default: page.calc_noun      | default: "options" -%}
 <style>
 .calc{background:rgba(255,255,255,0.03);border:1px solid rgba(89,137,217,0.25);border-radius:16px;padding:24px;margin:36px 0}
-.calc > h2{border:none;padding:0;margin:0 0 4px}
-.calc h3{color:#5989D9;font-size:13px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:0.5px}
+.calc > h2{border:none;padding:0;margin:0 0 4px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.calc-pill{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:#33C759;color:#0b1f12;padding:3px 8px;border-radius:6px}
+.calc h3{color:#5989D9;font-size:13px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center}
+.calc-step{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#5989D9;color:#fff;font-size:12px;margin-right:8px;flex:none}
 .calc-row{display:flex;gap:8px;align-items:center;margin:8px 0}
 .calc-row input[type=text]{flex:1;min-width:0;background:#1b1e26;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:9px 12px;border-radius:9px;font-size:15px}
 .calc-row select{background:#1b1e26;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:9px 10px;border-radius:9px;font-size:14px}
@@ -29,7 +32,9 @@ Override per-include with the same keys, e.g. {% include decision-calculator.htm
 .calc-grid td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:center;color:#ccc}
 .calc-grid td:first-child{text-align:left}
 .calc-grid select{background:#1b1e26;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:6px 8px;border-radius:7px;font-size:14px}
+.calc-result{margin-top:22px}
 .calc-result h3{margin-bottom:4px}
+.calc-hint{color:#888;font-size:14px;margin:8px 0 0}
 .calc-bar-row{margin:12px 0}
 .calc-bar-head{display:flex;justify-content:space-between;font-size:14px;color:#fff;margin-bottom:5px}
 .calc-bar-track{background:rgba(255,255,255,0.06);border-radius:8px;height:12px;overflow:hidden}
@@ -42,25 +47,25 @@ Override per-include with the same keys, e.g. {% include decision-calculator.htm
 </style>
 
 <div class="calc" id="calc">
-<h2>Try it now — rank your {{ _noun }}</h2>
-<p style="color:#aaa;margin-top:0">Weighted scoring, right here, no signup. Pre-filled with sensible defaults — change anything.</p>
+<h2>Try it now — rank your {{ _noun }} <span class="calc-pill">Free</span></h2>
+<p style="color:#aaa;margin-top:0">Weighted scoring, no signup. It's pre-filled with an example — edit the names, weights and scores to match your situation and the ranking updates live.</p>
 
-<h3>Your {{ _noun }}</h3>
+<h3><span class="calc-step">1</span> Your {{ _noun }}</h3>
 <div id="calc-opts"></div>
 <button class="calc-add" type="button" data-add="opt">+ Add</button>
 
-<h3>Criteria &amp; importance</h3>
+<h3><span class="calc-step">2</span> Criteria &amp; importance</h3>
 <div id="calc-crits"></div>
 <button class="calc-add" type="button" data-add="crit">+ Add criterion</button>
 
-<h3>Score each — 1 (poor) to 5 (great)</h3>
+<h3><span class="calc-step">3</span> Score each — 1 (poor) to 5 (great)</h3>
 <div style="overflow-x:auto"><table class="calc-grid" id="calc-grid"></table></div>
 
 <div class="calc-result" id="calc-result"></div>
 
 <div class="calc-cta">
-<p>This is basic weighted scoring. <strong>Decisio</strong> adds AHP pairwise comparison for far more accurate weights, AI criteria suggestions, a Devil's Advocate that stress-tests your top pick, and saves every decision.</p>
-<a href="https://apps.apple.com/app/id{{ site.app_store_id }}?pt=126584033&ct={{ _ct }}&mt=8" target="_blank" rel="noopener" class="cta-btn">Download on the App Store</a>
+<p id="calc-cta-line">This is basic weighted scoring. <strong>Decisio</strong> adds AHP pairwise comparison for sharper weights, AI criteria suggestions, a Devil's Advocate that argues against your top pick, and saves every decision.</p>
+<a href="https://apps.apple.com/app/id{{ site.app_store_id }}?pt=126584033&ct={{ _ct }}&mt=8" target="_blank" rel="noopener" class="cta-btn">Get Decisio — free</a>
 </div>
 </div>
 
@@ -69,16 +74,24 @@ Override per-include with the same keys, e.g. {% include decision-calculator.htm
   var W=['—','Very low','Low','Medium','High','Very high'];
   var opts=[{% assign _oarr = _opts | split: "," %}{% for o in _oarr %}{{ o | strip | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}];
   var crits=[{% assign _carr = _crits | split: "," %}{% for c in _carr %}{% assign _p = c | split: ":" %}{n:{{ _p[0] | strip | jsonify }},w:{{ _p[1] | default: "3" | strip | plus: 0 }}}{% unless forloop.last %},{% endunless %}{% endfor %}];
+  var seed=[{% assign _sg = _scores | split: "/" %}{% for g in _sg %}[{% assign _ss = g | strip | split: " " %}{% for n in _ss %}{{ n | strip | plus: 0 }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% unless forloop.last %},{% endunless %}{% endfor %}];
   var DTYPE={{ _dtype | jsonify }};
   var sc={},started=false,resultSeen=false;
   var root=document.getElementById('calc'),
       elO=document.getElementById('calc-opts'),
       elC=document.getElementById('calc-crits'),
       elG=document.getElementById('calc-grid'),
-      elR=document.getElementById('calc-result');
+      elR=document.getElementById('calc-result'),
+      ctaEl=document.getElementById('calc-cta-line'),
+      ctaDefault=ctaEl?ctaEl.innerHTML:'';
 
   function key(o,c){return o+'|'+c}
-  function getSc(o,c){var v=sc[key(o,c)];return v==null?3:v}
+  function getSc(o,c){
+    var v=sc[key(o,c)];
+    if(v!=null)return v;
+    if(seed[o]&&seed[o][c]>=1&&seed[o][c]<=5)return seed[o][c];
+    return 3;
+  }
   function esc(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
   function tags(kind,val){var s='';for(var i=1;i<=5;i++)s+='<option value="'+i+'"'+(i==val?' selected':'')+'>'+(kind=='w'?W[i]:i)+'</option>';return s}
   function track(ev){if(window.amplitude){try{amplitude.track(ev,{page:location.pathname,decision_type:DTYPE})}catch(e){}}}
@@ -108,10 +121,16 @@ Override per-include with the same keys, e.g. {% include decision-calculator.htm
       return {name:o||('Option '+(oi+1)),pct:Math.round(t/(wsum*5)*100)};
     }).sort(function(a,b){return b.pct-a.pct});
     var second=res[1]?res[1].pct:-1;
+    var clear=res.length>1&&res[0].pct>second;
     elR.innerHTML='<h3>Result</h3>'+res.map(function(r,i){
-      var win=(i===0&&res.length>1&&r.pct>second)?' win':'';
+      var win=(i===0&&clear)?' win':'';
       return '<div class="calc-bar-row'+win+'"><div class="calc-bar-head"><span>'+esc(r.name)+'</span><span>'+r.pct+'%</span></div><div class="calc-bar-track"><div class="calc-bar-fill" style="width:'+r.pct+'%"></div></div></div>';
-    }).join('');
+    }).join('')+(clear?'':'<p class="calc-hint">Tweak the weights or scores to break the tie.</p>');
+    if(ctaEl){
+      ctaEl.innerHTML = clear
+        ? '<strong>'+esc(res[0].name)+'</strong> comes out on top here. Get AHP pairwise weighting, an AI criteria check and a Devil’s Advocate on that pick — and keep the decision saved — in Decisio.'
+        : ctaDefault;
+    }
   }
   function refresh(){renderInputs();renderGrid();compute()}
 
@@ -130,8 +149,8 @@ Override per-include with the same keys, e.g. {% include decision-calculator.htm
     var d=e.target.dataset;
     if(d.add==='opt'&&opts.length<6){opts.push('');refresh();firstTouch()}
     else if(d.add==='crit'&&crits.length<8){crits.push({n:'',w:3});refresh();firstTouch()}
-    else if(d.delo!=null){opts.splice(+d.delo,1);sc={};refresh()}
-    else if(d.delc!=null){crits.splice(+d.delc,1);sc={};refresh()}
+    else if(d.delo!=null){opts.splice(+d.delo,1);sc={};seed=[];refresh()}
+    else if(d.delc!=null){crits.splice(+d.delc,1);sc={};seed=[];refresh()}
     else if(e.target.classList.contains('cta-btn')){track('calculator_cta_clicked')}
   });
 
