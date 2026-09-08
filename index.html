@@ -969,34 +969,27 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  line-height: 1;
   margin-bottom: 16px;
 }
 
-.feature-icon-blue {
-  background: rgba(89, 137, 217, 0.12);
+.feature-icon svg {
+  width: 23px;
+  height: 23px;
+  display: block;
 }
 
-.feature-icon-green {
-  background: rgba(51, 199, 89, 0.12);
-}
-
-.feature-icon-amber {
-  background: rgba(255, 214, 10, 0.12);
-}
-
-.feature-icon-red {
-  background: rgba(255, 69, 58, 0.12);
-}
-
-.feature-icon-purple {
-  background: rgba(175, 82, 222, 0.12);
-}
-
-.feature-icon-teal {
-  background: rgba(90, 200, 250, 0.12);
-}
+.feature-icon-blue   { background: rgba(89, 137, 217, 0.12); }
+.feature-icon-blue   svg { color: #7BA3E6; }
+.feature-icon-green  { background: rgba(51, 199, 89, 0.12); }
+.feature-icon-green  svg { color: #4FD37A; }
+.feature-icon-amber  { background: rgba(255, 214, 10, 0.12); }
+.feature-icon-amber  svg { color: #F5C542; }
+.feature-icon-red    { background: rgba(255, 69, 58, 0.12); }
+.feature-icon-red    svg { color: #FF7A70; }
+.feature-icon-purple { background: rgba(175, 82, 222, 0.12); }
+.feature-icon-purple svg { color: #C88BEA; }
+.feature-icon-teal   { background: rgba(90, 200, 250, 0.12); }
+.feature-icon-teal   svg { color: #6FCBF5; }
 
 .feature-title {
   font-size: 17px;
@@ -1728,37 +1721,49 @@ img {
 
     <div class="features-grid">
       <div class="feature-card fade-in fade-in-delay-1">
-        <div class="feature-icon feature-icon-blue" aria-hidden="true">&#x2696;&#xFE0F;</div>
+        <div class="feature-icon feature-icon-blue" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 21h16M3 7h18M12 3l7 4M12 3 5 7"/><path d="M6.5 7 3 14a3.5 3.5 0 0 0 7 0L6.5 7ZM17.5 7 14 14a3.5 3.5 0 0 0 7 0L17.5 7Z"/></svg>
+        </div>
         <h3 class="feature-title">AHP Pairwise Comparisons</h3>
         <p class="feature-description">The same math NASA, Boeing, and the World Bank use to make high-stakes decisions. Published in thousands of peer-reviewed studies.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-2">
-        <div class="feature-icon feature-icon-purple" aria-hidden="true">&#x1F916;</div>
+        <div class="feature-icon feature-icon-purple" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.9 8.1 18.5 10 13.9 11.9 12 16.5 10.1 11.9 5.5 10 10.1 8.1ZM5 3.5v3M3.5 5h3M18.5 15v3M17 16.5h3"/></svg>
+        </div>
         <h3 class="feature-title">AI-Powered Analysis</h3>
         <p class="feature-description">Get intelligent criteria suggestions, option ideas, and an executive summary that explains your results in plain language.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-3">
-        <div class="feature-icon feature-icon-red" aria-hidden="true">&#x1F525;</div>
+        <div class="feature-icon feature-icon-red" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6ZM12 8v4"/><path d="M12 15.5h.01"/></svg>
+        </div>
         <h3 class="feature-title">Devil's Advocate <span class="feature-badge">Pro</span></h3>
         <p class="feature-description">AI challenges your top choice before you commit. Surfaces blind spots, risks, and counterarguments you might have missed.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-1">
-        <div class="feature-icon feature-icon-green" aria-hidden="true">&#x1F4D6;</div>
+        <div class="feature-icon feature-icon-green" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.6-1-4-1.5-6-1.5S2.5 5 2.5 5v13S4 17.5 6 17.5s4.4.5 6 1.5c1.6-1 4-1.5 6-1.5s3.5.5 3.5.5V5S20 4.5 18 4.5 13.6 5 12 6ZM12 6v13"/></svg>
+        </div>
         <h3 class="feature-title">Decision Playbook</h3>
         <p class="feature-description">Save recipes and principles from every decision. Build your personal decision-making framework over time.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-2">
-        <div class="feature-icon feature-icon-amber" aria-hidden="true">&#x1F3AF;</div>
+        <div class="feature-icon feature-icon-amber" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
         <h3 class="feature-title">Calibration Score</h3>
         <p class="feature-description">Track your decision-making accuracy. Rate outcomes as Right Call, Mixed, or Wrong Call and watch your calibration improve.</p>
       </div>
 
       <div class="feature-card fade-in fade-in-delay-3">
-        <div class="feature-icon feature-icon-teal" aria-hidden="true">&#x1F4C4;</div>
+        <div class="feature-icon feature-icon-teal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8ZM14 3v5h5M9 13h6M9 17h4"/></svg>
+        </div>
         <h3 class="feature-title">PDF &amp; CSV Export <span class="feature-badge">Pro</span></h3>
         <p class="feature-description">Share professional decision reports with stakeholders. Full audit trail with criteria weights, scores, and rationale.</p>
       </div>
