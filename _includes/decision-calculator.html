@@ -14,10 +14,12 @@ Interactive weighted-scoring calculator. Config via page front matter:
 {%- assign _dtype  = include.calc_type      | default: page.calc_type      | default: page.slug | default: "generic" -%}
 {%- assign _noun   = include.calc_noun      | default: page.calc_noun      | default: "options" -%}
 <style>
-.calc{background:rgba(255,255,255,0.03);border:1px solid rgba(89,137,217,0.25);border-radius:16px;padding:24px;margin:36px 0}
-.calc > h2{border:none;padding:0;margin:0 0 4px;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.calc{background:rgba(255,255,255,0.03);border:1px solid rgba(89,137,217,0.25);border-radius:16px;margin:36px 0;display:flex;flex-direction:column;overflow:hidden}
+.calc-scroll{padding:24px;overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1 1 auto;min-height:0}
+.calc-title{border:none;padding:0;margin:0 0 4px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:20px;font-weight:700;color:#fff}
 .calc-pill{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;background:#33C759;color:#0b1f12;padding:3px 8px;border-radius:6px}
-.calc h3{color:#5989D9;font-size:13px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center}
+.calc-sub{color:#aaa;font-size:14px;margin:0}
+.calc-scroll h3{color:#5989D9;font-size:13px;margin:22px 0 10px;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center}
 .calc-step{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#5989D9;color:#fff;font-size:12px;margin-right:8px;flex:none}
 .calc-row{display:flex;gap:8px;align-items:center;margin:8px 0}
 .calc-row input[type=text]{flex:1;min-width:0;background:#1b1e26;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:9px 12px;border-radius:9px;font-size:15px}
@@ -41,14 +43,22 @@ Interactive weighted-scoring calculator. Config via page front matter:
 .calc-bar-fill{height:100%;border-radius:8px;background:#5989D9;transition:width .35s ease}
 .calc-bar-row.win .calc-bar-fill{background:#33C759}
 .calc-bar-row.win .calc-bar-head{color:#33C759;font-weight:700}
-.calc-cta{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08)}
-.calc-cta p{font-size:14px;color:#aaa;margin:0 0 12px}
-@media(max-width:520px){.calc{padding:18px}.calc-grid th,.calc-grid td{padding:6px 3px;font-size:13px}.calc-grid select{padding:5px 4px}}
+.calc-cta{flex:none;padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.09);background:rgba(89,137,217,0.06)}
+.calc-lead{color:#fff;font-size:14px;line-height:1.5;margin:0 0 10px}
+.calc-lead:empty{display:none}
+.calc-lead strong{color:#33C759}
+.calc-feats-intro{font-size:13px;color:#aaa;margin:0 0 6px}
+.calc-feats{list-style:none;margin:0 0 14px;padding:0}
+.calc-feats li{font-size:13px;color:#ccc;padding:3px 0 3px 20px;position:relative;line-height:1.4}
+.calc-feats li::before{content:"\2713";position:absolute;left:0;top:3px;color:#33C759;font-weight:700}
+.calc-cta .cta-btn{display:block;text-align:center;margin:0}
+@media(max-width:520px){.calc-scroll{padding:18px}.calc-cta{padding:14px 18px 18px}.calc-grid th,.calc-grid td{padding:6px 3px;font-size:13px}.calc-grid select{padding:5px 4px}}
 </style>
 
 <div class="calc" id="calc">
-<h2>Try it now — rank your {{ _noun }} <span class="calc-pill">Free</span></h2>
-<p style="color:#aaa;margin-top:0">Weighted scoring, no signup. It's pre-filled with an example — edit the names, weights and scores to match your situation and the ranking updates live.</p>
+<div class="calc-scroll">
+<h2 class="calc-title">Try it now — rank your {{ _noun }} <span class="calc-pill">Free</span></h2>
+<p class="calc-sub">Pre-filled with an example. Edit the names, weights and scores to match your situation — the ranking updates live.</p>
 
 <h3><span class="calc-step">1</span> Your {{ _noun }}</h3>
 <div id="calc-opts"></div>
@@ -62,9 +72,17 @@ Interactive weighted-scoring calculator. Config via page front matter:
 <div style="overflow-x:auto"><table class="calc-grid" id="calc-grid"></table></div>
 
 <div class="calc-result" id="calc-result"></div>
+</div>
 
 <div class="calc-cta">
-<p id="calc-cta-line">This is basic weighted scoring. <strong>Decisio</strong> adds AHP pairwise comparison for sharper weights, AI criteria suggestions, a Devil's Advocate that argues against your top pick, and saves every decision.</p>
+<p class="calc-lead" id="calc-lead"></p>
+<p class="calc-feats-intro">Free here. <strong>Decisio</strong> on iOS adds:</p>
+<ul class="calc-feats">
+<li>AHP pairwise comparison — sharper, less arbitrary weights</li>
+<li>AI criteria &amp; option suggestions</li>
+<li>Devil's Advocate that argues against your top pick</li>
+<li>Every decision saved, with outcome tracking</li>
+</ul>
 <a href="https://apps.apple.com/app/id{{ site.app_store_id }}?pt=126584033&ct={{ _ct }}&mt=8" target="_blank" rel="noopener" class="cta-btn">Get Decisio — free</a>
 </div>
 </div>
@@ -82,8 +100,7 @@ Interactive weighted-scoring calculator. Config via page front matter:
       elC=document.getElementById('calc-crits'),
       elG=document.getElementById('calc-grid'),
       elR=document.getElementById('calc-result'),
-      ctaEl=document.getElementById('calc-cta-line'),
-      ctaDefault=ctaEl?ctaEl.innerHTML:'';
+      leadEl=document.getElementById('calc-lead');
 
   function key(o,c){return o+'|'+c}
   function getSc(o,c){
@@ -126,10 +143,10 @@ Interactive weighted-scoring calculator. Config via page front matter:
       var win=(i===0&&clear)?' win':'';
       return '<div class="calc-bar-row'+win+'"><div class="calc-bar-head"><span>'+esc(r.name)+'</span><span>'+r.pct+'%</span></div><div class="calc-bar-track"><div class="calc-bar-fill" style="width:'+r.pct+'%"></div></div></div>';
     }).join('')+(clear?'':'<p class="calc-hint">Tweak the weights or scores to break the tie.</p>');
-    if(ctaEl){
-      ctaEl.innerHTML = clear
-        ? '<strong>'+esc(res[0].name)+'</strong> comes out on top here. Get AHP pairwise weighting, an AI criteria check and a Devil’s Advocate on that pick — and keep the decision saved — in Decisio.'
-        : ctaDefault;
+    if(leadEl){
+      leadEl.innerHTML = clear
+        ? '<strong>'+esc(res[0].name)+'</strong> comes out on top here — pressure-test it:'
+        : '';
     }
   }
   function refresh(){renderInputs();renderGrid();compute()}
