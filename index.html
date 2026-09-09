@@ -877,8 +877,8 @@ img {
 }
 
 .step-number {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   margin: 0 auto 24px;
   border-radius: 50%;
   background: var(--bg-tertiary);
@@ -886,13 +886,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--accent);
   line-height: 1;
   position: relative;
-}
-
-.step-icon {
-  font-size: 32px;
 }
 
 .step-title {
@@ -1439,18 +1437,43 @@ img {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 20px 22px;
-  margin: 14px 0;
+  margin: 12px 0;
 }
 
-.faq-item h3 {
-  margin-top: 0;
-  color: var(--accent);
-  font-size: 17px;
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
 }
 
-.faq-item p {
-  margin: 8px 0 0;
+.faq-item > summary::-webkit-details-marker { display: none; }
+
+.faq-item > summary h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-item > summary::after {
+  content: "+";
+  flex: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--text-tertiary);
+}
+
+.faq-item[open] > summary h3 { color: var(--accent); }
+.faq-item[open] > summary::after { content: "\2212"; }
+.faq-item[open] { background: rgba(255, 255, 255, 0.05); }
+
+.faq-item > p {
+  margin: 0;
+  padding: 0 22px 20px;
 }
 
 .footer-brand {
@@ -1760,21 +1783,21 @@ img {
 
     <div class="steps-grid">
       <div class="step-card fade-in fade-in-delay-1">
-        <div class="step-number"><span class="step-icon">&#x1F3AF;</span></div>
+        <div class="step-number">1</div>
         <div>
           <h3 class="step-title">Define your decision</h3>
           <p class="step-description">Name your choice, add criteria that matter, and list your options. AI can suggest both for you.</p>
         </div>
       </div>
       <div class="step-card fade-in fade-in-delay-2">
-        <div class="step-number"><span class="step-icon">&#x2696;&#xFE0F;</span></div>
+        <div class="step-number">2</div>
         <div>
           <h3 class="step-title">Compare what matters</h3>
           <p class="step-description">Rate pairs of criteria and options side by side. The same method NASA and Boeing rely on for mission-critical calls.</p>
         </div>
       </div>
       <div class="step-card fade-in fade-in-delay-3">
-        <div class="step-number"><span class="step-icon">&#x1F4CA;</span></div>
+        <div class="step-number">3</div>
         <div>
           <h3 class="step-title">Get ranked results</h3>
           <p class="step-description">See your options ranked with confidence scores, AI executive summary, and a Devil's Advocate challenge.</p>
@@ -2049,8 +2072,8 @@ img {
   <div class="answer-inner">
     <h2>Common questions</h2>
 
-    <div class="faq-item">
-      <h3>What is the best decision-making app in 2026?</h3>
+    <details class="faq-item" open>
+      <summary><h3>What is the best decision-making app in 2026?</h3></summary>
       <p>
         It depends on what you're deciding. For <em>structured personal
         decisions</em> (job offers, big purchases, relocations) Decisio is
@@ -2061,10 +2084,10 @@ img {
         flexible. See the full
         <a href="/blog/best-decision-making-apps-2026.html">2026 comparison</a>.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>How is a decision-making app different from a pros/cons list?</h3>
+    <details class="faq-item">
+      <summary><h3>How is a decision-making app different from a pros/cons list?</h3></summary>
       <p>
         Pros/cons lists treat every item as equally weighted: "has free
         parking" counts the same as "doubles my salary." A real
@@ -2073,10 +2096,10 @@ img {
         weighted score. That single change usually flips which option
         actually wins.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>What is AHP (Analytic Hierarchy Process)?</h3>
+    <details class="faq-item">
+      <summary><h3>What is AHP (Analytic Hierarchy Process)?</h3></summary>
       <p>
         A multi-criteria decision analysis method developed by Thomas Saaty
         in 1977. You compare criteria and options two at a time on a 1-to-9
@@ -2085,10 +2108,10 @@ img {
         Used by NASA, Boeing, the World Bank, and Fortune 500 companies for
         high-stakes calls. Decisio is the consumer-grade implementation.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Is Decisio free?</h3>
+    <details class="faq-item">
+      <summary><h3>Is Decisio free?</h3></summary>
       <p>
         Yes, for the first 3 decisions with Simple Scoring, all 15+
         templates, the full Playbook, and full Outcome Tracking — no ads,
@@ -2096,10 +2119,10 @@ img {
         7-day free trial) unlocks unlimited decisions, AHP pairwise
         comparisons, AI Devil's Advocate, and PDF/Excel/Markdown export.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Does Decisio work offline / privately?</h3>
+    <details class="faq-item">
+      <summary><h3>Does Decisio work offline / privately?</h3></summary>
       <p>
         Yes. AI runs on-device via Apple Intelligence on iOS 26+
         (no data leaves your phone), or you can plug in your own OpenAI
@@ -2107,10 +2130,10 @@ img {
         account through Core Data + CloudKit. No third-party server stores
         your decision content.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>Decisio vs Excel / Google Sheets — which is better for decisions?</h3>
+    <details class="faq-item">
+      <summary><h3>Decisio vs Excel / Google Sheets — which is better for decisions?</h3></summary>
       <p>
         Spreadsheets are infinitely flexible but require you to design the
         scoring model yourself. That's where most people quietly slip back
@@ -2119,10 +2142,10 @@ img {
         methodology (pairwise comparison, consistency check, eigenvector
         priority) so you can't accidentally weight everything equally.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>How long does a decision in Decisio take?</h3>
+    <details class="faq-item">
+      <summary><h3>How long does a decision in Decisio take?</h3></summary>
       <p>
         5–10 minutes for a typical 3-options × 4-criteria decision in
         Simple Scoring mode. AHP pairwise mode adds ~3 minutes for a
@@ -2130,10 +2153,10 @@ img {
         ~12 option comparisons). Most users save the recipe in the
         Playbook and reuse it for similar future decisions.
       </p>
-    </div>
+    </details>
 
-    <div class="faq-item">
-      <h3>What happens after I decide? Does Decisio track outcomes?</h3>
+    <details class="faq-item">
+      <summary><h3>What happens after I decide? Does Decisio track outcomes?</h3></summary>
       <p>
         Yes. Each decision can be marked Right Call / Mixed / Wrong Call
         weeks or months later. After 5+ rated outcomes you get a personal
@@ -2141,7 +2164,7 @@ img {
         Recipes (what worked) and Principles (lessons learned) accumulate
         in the Playbook so future decisions inherit your past judgment.
       </p>
-    </div>
+    </details>
   </div>
 </section>
 
