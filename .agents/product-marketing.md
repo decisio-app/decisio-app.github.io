@@ -8,7 +8,7 @@
 **What it does:** You add your options and the criteria that matter, weigh the criteria with quick pairwise comparisons (AHP), and score each option 1–5. Decisio computes a weighted ranking with a consistency check, and (Pro) an AI "Devil's Advocate" argues against your top pick — surfacing risks, blind spots, and hidden costs specific to your decision — plus an AI executive summary. It logs how the decision turned out and tracks a calibration score over time.
 **Product category:** Decision-making / decision-support app. People search for "decision making app", "decision matrix app", "weighted pros and cons app", "how to choose between X and Y".
 **Product type:** Consumer iOS app. iPhone + iPad, **iOS 17+**. On-device AI requires iOS 26+ (Apple Intelligence).
-**Business model:** Free = 3 complete decisions, no account. Pro = $2.99/mo or $19.99/year (~44% off annual), **7-day free trial on the annual plan only**. Pro unlocks unlimited decisions, unlimited AI analysis, Devil's Advocate, AI executive summary, PDF/CSV (Excel) export, calibration tracking, Decision Playbook, priority support.
+**Business model:** Free = 3 complete decisions, no account. Pro = $6.99/mo, $34.99/year (~58% off), or **$59.99 one-time Lifetime** (since 2.0.5 / Nov 4, 2026 price change; the 3 pre-existing subscribers stay on $2.99). **7-day free trial on the annual plan only**. Pro unlocks unlimited decisions, unlimited AI analysis, Devil's Advocate, AI executive summary, PDF/CSV (Excel) export, calibration tracking, Decision Playbook, priority support.
 
 **AI is bring-your-own or on-device — not bundled.** Three modes (default "Smart/auto"): on-device via Apple Intelligence (iOS 26+, no key, fully private), or Cloud via the user's **own OpenAI API key** (gpt-4o-mini), or disabled. The core AHP method works with AI off. This is a real onboarding friction *and* a privacy selling point — see Objections.
 
@@ -90,7 +90,7 @@ N/A — single-stakeholder B2C purchase.
 - "Structured process eliminates analysis paralysis."
 - "Stop relying on gut feeling alone."
 - Devil's Advocate: "Expand to see the AI challenge your top choice." / "Analyzing blind spots…" / "Challenging: [your pick]"
-- Paywall: "Decisio Pro — Unlock your full potential." / "Try Free — Then $19.99/yr."
+- Paywall: "Decisio Pro — Unlock your full potential." / "Try Free — Then $34.99/yr." (annual preselected; Monthly and Lifetime cards beside it)
 **Words to use:** decide, ranked result, criteria, weigh, trade-offs, pairwise, pressure-test, gut check, blind spots, confidence, consistency check, "in about ten minutes", structured, "see exactly why one option wins", honest.
 **Words to avoid:** "algorithm" (opaque), "optimize your life", generic AI-hype framing, "productivity", "life hack". Site/app voice is deliberately anti-hype — keep it. Also avoid over-corporate framing ("strategic alignment", "stakeholders", "executive") on personal-decision surfaces.
 **Glossary:**
